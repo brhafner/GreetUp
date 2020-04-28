@@ -19,8 +19,8 @@ const receiveErrors = (errors) => ({
     errors
 })
 
-export const signUp = (user) => dispatch => (
-    SessionApiUtil.signUp(user)
+export const signup = (user) => dispatch => (
+    SessionApiUtil.signup(user)
         .then(
             user => dispatch(receiveCurrentUser(user)),
             errors => dispatch(receiveErrors(errors)))
