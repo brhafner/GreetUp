@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-/bundle.js.map
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -23,5 +23,6 @@
 /public/assets
 .byebug_history
 
+bundle.js*
 # Ignore master key for decrypting credentials and more.
 /config/master.key
