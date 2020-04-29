@@ -222,6 +222,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
+    },
+    processDemo: function processDemo(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
     }
   };
 };
@@ -354,7 +357,13 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       email: "",
       password: ""
     };
+    _this.demoUser = {
+      "firstName": "demo2",
+      "email": "demo2@aa.io",
+      "password": "password"
+    };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemo = _this.handleDemo.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -373,6 +382,12 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       this.props.processForm(this.state);
       this.resetForm();
+    }
+  }, {
+    key: "handleDemo",
+    value: function handleDemo(e) {
+      e.preventDefault();
+      this.props.processDemo(this.demoUser); // this.resetForm();
     }
   }, {
     key: "resetForm",
@@ -407,7 +422,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.password
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleSubmit
-      }, isSignup ? "Sign Up" : "Log In")));
+      }, isSignup ? "Sign Up" : "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleDemo
+      }, "Demo User")));
     }
   }]);
 
@@ -448,6 +465,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["signup"])(user));
+    },
+    processDemo: function processDemo(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
     }
   };
 };
