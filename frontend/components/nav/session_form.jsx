@@ -22,7 +22,6 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        // debugger
         this.props.processForm(this.state)
         this.resetForm();
     }
@@ -99,10 +98,10 @@ class SessionForm extends React.Component {
                     </label>
                     <button 
                         className="session-submit" 
-                        onClick={this.handleSubmit}>{isSignup ? "Log In" : "Continue"}</button>
+                        onClick={this.handleSubmit}>{isSignup ? "Sign Up" : "Log In"}</button>
                     <button 
                         className="session-submit"
-                        onClick={this.handleDemo}>Sign in as a Demo User</button>
+                        onClick={this.handleDemo}>Log In as a Demo User</button>
                 </form>
             </div>
         )

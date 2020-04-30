@@ -138,12 +138,10 @@ var signup = function signup(user) {
 };
 var login = function login(user) {
   return function (dispatch) {
-    // debugger
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
     }, function (errors) {
-      // debugger
-      dispatch(receiveErrors(errors.responseJSON));
+      return dispatch(receiveErrors(errors.responseJSON));
     });
   };
 };
@@ -386,8 +384,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // debugger
-
+      e.preventDefault();
       this.props.processForm(this.state);
       this.resetForm();
     }
@@ -462,10 +459,10 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "session-submit",
         onClick: this.handleSubmit
-      }, isSignup ? "Log In" : "Continue"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, isSignup ? "Sign Up" : "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "session-submit",
         onClick: this.handleDemo
-      }, "Sign in as a Demo User")));
+      }, "Log In as a Demo User")));
     }
   }]);
 
@@ -697,18 +694,12 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
   var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(oldState);
-  var nextState = Object.assign({}, oldState);
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SESSION_ERRORS"]:
-      // add errors
-      // Object.assign(nextState.errors, action.errors)
-      // return nextState;
       return action.errors;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      // remove errors
-      // return Object.assign(nextState, { errors: [] });
       return [];
 
     default:
@@ -747,7 +738,6 @@ var sessionReducer = function sessionReducer() {
       });
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
-      // debugger
       return _nullSession;
 
     default:

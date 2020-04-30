@@ -8,7 +8,6 @@ class Api::SessionsController < ApplicationController
             log_in(@user)
             render 'api/users/show'
         else
-            # debugger
             render json: ["Invalid email or password"], status: 422
         end
     end
