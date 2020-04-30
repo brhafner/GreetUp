@@ -387,7 +387,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     key: "handleDemo",
     value: function handleDemo(e) {
       e.preventDefault();
-      this.props.processDemo(this.demoUser); // this.resetForm();
+      this.props.processDemo(this.demoUser);
     }
   }, {
     key: "resetForm",
@@ -403,28 +403,50 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var isSignup = this.props.formType === "signup";
-      var showName = isSignup ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "First Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      var showName = isSignup ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "session-label"
+      }, "First Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        className: "session-form-input",
+        placeholder: "First Name",
         onChange: this.handleChange("firstName"),
         value: this.state.firstName
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Last Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "session-label"
+      }, "Last Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        className: "session-form-input",
+        placeholder: "Last Name",
         onChange: this.handleChange("lastName"),
         value: this.state.lastName
       }))) : "";
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, isSignup ? "Sign Up" : "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, showName, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session-form"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "form-name"
+      }, isSignup ? "Sign Up" : "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, showName, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "session-label"
+      }, "Email Address:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        className: "session-form-input",
+        placeholder: "Email",
         onChange: this.handleChange("email"),
         value: this.state.email
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "session-label"
+      }, "Password:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
+        className: "session-form-input",
+        placeholder: "Password",
         onChange: this.handleChange("password"),
         value: this.state.password
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "session-submit",
         onClick: this.handleSubmit
-      }, isSignup ? "Sign Up" : "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, isSignup ? "Log In" : "Continue"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "session-submit",
         onClick: this.handleDemo
-      }, "Demo User")));
+      }, "Sign in as a Demo User")));
     }
   }]);
 

@@ -29,7 +29,6 @@ class SessionForm extends React.Component {
     handleDemo(e) {
         e.preventDefault()
         this.props.processDemo(this.demoUser)
-        // this.resetForm();
     }
 
     resetForm() {
@@ -44,28 +43,52 @@ class SessionForm extends React.Component {
         let isSignup = this.props.formType === "signup";
         let showName = isSignup ? (
             <div>
-                <label>First Name:
-                    <input type="text" onChange={this.handleChange("firstName")} value={this.state.firstName} />
+                <label className='session-label'>First Name:
+                    <input 
+                        type="text" 
+                        className="session-form-input"
+                        placeholder="First Name"
+                        onChange={this.handleChange("firstName")} 
+                        value={this.state.firstName} />
                 </label>
-                <label>Last Name:
-                    <input type="text" onChange={this.handleChange("lastName")} value={this.state.lastName} />
+                <label className='session-label'>Last Name:
+                    <input 
+                    type="text" 
+                    className="session-form-input"
+                    placeholder="Last Name"
+                    onChange={this.handleChange("lastName")} 
+                    value={this.state.lastName} />
                 </label>
             </div>
             ) : "";
 
         return (
-            <div>
-                <h2>{isSignup ? "Sign Up" : "Log In"}</h2>
+            <div className='session-form'>
+                <p className='form-name' >{isSignup ? "Sign Up" : "Log In"}</p>
                 <form>
                     {showName}
-                    <label>Email:
-                    <input type="text" onChange={this.handleChange("email")} value={this.state.email} />
+                    <label className='session-label'>Email Address:
+                    <input 
+                        type="text" 
+                        className="session-form-input"
+                        placeholder="Email"
+                        onChange={this.handleChange("email")} 
+                        value={this.state.email} />
                     </label>
-                    <label>Password:
-                        <input type="password" onChange={this.handleChange("password")} value={this.state.password} />
+                    <label className='session-label'>Password:
+                        <input 
+                            type="password" 
+                            className="session-form-input"
+                            placeholder="Password"
+                            onChange={this.handleChange("password")} 
+                            value={this.state.password} />
                     </label>
-                    <button onClick={this.handleSubmit}>{isSignup ? "Sign Up" : "Log In"}</button>
-                    <button onClick={this.handleDemo}>Demo User</button>
+                    <button 
+                        className="session-submit" 
+                        onClick={this.handleSubmit}>{isSignup ? "Log In" : "Continue"}</button>
+                    <button 
+                        className="session-submit"
+                        onClick={this.handleDemo}>Sign in as a Demo User</button>
                 </form>
             </div>
         )
