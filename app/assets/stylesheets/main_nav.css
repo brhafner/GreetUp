@@ -1,0 +1,19 @@
+.header-nav {
+    margin: 30px, 30px;
+    padding: 30px, 30px, 30px, 30px; 
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.header-render {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.nav-button {
+    color: #757575;
+    padding-right: 20px;
+    font-size: 14px;
+    font-weight: 400;
+}
