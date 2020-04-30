@@ -22,6 +22,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
+        // debugger
         this.props.processForm(this.state)
         this.resetForm();
     }
@@ -39,8 +40,20 @@ class SessionForm extends React.Component {
             password: ""
         })
     }
+
+    renderErrors(){
+        return(
+            <div>
+                {this.props.errors.map((error, i) => (
+                   <div key={i}>{error}</div>
+                ))}
+            </div>
+        )
+    }
+
     render() {
         let isSignup = this.props.formType === "signup";
+        let theErrors = this.props.errors.length ? this.renderErrors() : "";
         let showName = isSignup ? (
             <div>
                 <label className='session-label'>First Name:
@@ -67,6 +80,7 @@ class SessionForm extends React.Component {
                 <p className='form-name' >{isSignup ? "Sign Up" : "Log In"}</p>
                 <form>
                     {showName}
+                    {theErrors}
                     <label className='session-label'>Email Address:
                     <input 
                         type="text" 

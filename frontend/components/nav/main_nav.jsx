@@ -10,7 +10,7 @@ export default ({ currentUser, logout }) => {
         </div>
     ) : (
             <div className="header-render">
-                <span>LOGO HUR</span>
+                <span>LOGO Go here</span>
                 <div>
                     <Link className="nav-button" to="/signup">Sign Up</Link>
                     <Link className="nav-button" to="/login">Log In</Link>

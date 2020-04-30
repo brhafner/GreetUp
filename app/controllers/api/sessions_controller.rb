@@ -8,17 +8,17 @@ class Api::SessionsController < ApplicationController
             log_in(@user)
             render 'api/users/show'
         else
-            render json: "Invalid email or password", status: 422
+            # debugger
+            render json: ["Invalid email or password"], status: 422
         end
     end
 
     def destroy
         if current_user
             log_out
-            # render json: {}
-            render json: "You are now logged out"
+            render json: ["You are now logged out"]
         else
-            render json: "Must be logged in to log out", status: 404
+            render json: ["Must be logged in to log out"], status: 404
         end
     end
 
