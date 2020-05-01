@@ -49,7 +49,7 @@ class Homepage extends React.Component {
                             <a href="">Food &amp; Drink</a>
                         </li>
                         <li>
-                            <img src={window.fitness} className="home-cats"/>
+                            {/* <img src={window.fitness} className="home-cats"/> */}
                             <a href="">Sports &amp; Fitness</a>
                         </li>
                         <li>
