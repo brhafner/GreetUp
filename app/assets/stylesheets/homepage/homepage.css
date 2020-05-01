@@ -45,6 +45,10 @@
     border-radius: 3px;
     margin-bottom: 12px;
 }
+.banner-button:hover{
+    background: #d12340;
+    border-color: #d12340;
+}
 
 .topline-group-links {
     padding: 0px 150px 10px 150px;
