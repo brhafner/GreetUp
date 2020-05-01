@@ -8,11 +8,10 @@ import Footer from './footer/footer'
 
 const App = () => (
     <div>
-        {/* <h1>GreetUp</h1> */}
         <MainNav />
-        <Homepage />
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
+        <AuthRoute exact path="/" component={Homepage}/>
         <Footer />
     </div>
 );

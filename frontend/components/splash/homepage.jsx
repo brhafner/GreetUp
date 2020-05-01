@@ -1,7 +1,5 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
-// import fitness from 'assets/images/photos/fitness.jpg'
-// import pets from './pets.jpeg';
+import { NavLink } from 'react-router-dom';
 
 class Homepage extends React.Component {
 
@@ -15,8 +13,8 @@ class Homepage extends React.Component {
                     </video> */}
                     <p className="headline">The real world is calling</p>
                     <p className="tagline">Join a local group to meet people, try something new, or do more of what you love.</p>
-                    <button className="banner-button">Join GreetUp</button>
-                    {/* <Link className="banner-button" to="/signup">Join GreetUp</Link> */}
+                    {/* <button className="banner-button">Join GreetUp</button> */}
+                    <NavLink className="banner-button" to="/signup">Join GreetUp</NavLink>
                     {/* need to change to link but width not rendering on link, when it does on button */}
                 </div>
                 <ul className="topline-group-links">
@@ -31,9 +29,6 @@ class Homepage extends React.Component {
                     <p className="tagline">Browse groups by topics you're interested in.</p>
                     <ul className="categories-list">
                         <li>
-                            {/* <img src={require('../../../app/assets/images/photos/fitness.jpg')} /> */}
-                            {/* <img src={require('./pets.jpeg')} /> */}
-                            {/* <img src={pets} /> */}
                             <img src={window.outdoors} className="home-cats" />
                             <a href="">Outdoor &amp; Adventure</a>
                         </li>

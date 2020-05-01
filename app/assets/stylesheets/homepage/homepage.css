@@ -35,7 +35,7 @@
 .banner-button{
     background: #f13a59;
     border-color: #ed1c40;
-    width: 250px;
+    min-width: 250px;
     height: 30px;
     text-align: center;
     font-size: 16px;
@@ -76,7 +76,8 @@
 .categories-list-container .tagline{
     font-size: 16px;
     color: #212121;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
+    margin-bottom: 40px;
 }
 
 .categories-list-container {
