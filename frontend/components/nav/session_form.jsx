@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
             email: "",
             password: ""
         };
-        this.demoUser = { "firstName": "demo2", "email": "demo2@aa.io", "password": "password" }
+        this.demoUser = { firstName: "demo2", email: "demo2@aa.io", password: "password" }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
     }
@@ -78,8 +78,8 @@ class SessionForm extends React.Component {
             <div className='session-form'>
                 <p className='form-name' >{isSignup ? "Sign Up" : "Log In"}</p>
                 <form>
-                    {showName}
                     {theErrors}
+                    {showName}
                     <label className='session-label'>Email Address:
                     <input 
                         type="text" 
