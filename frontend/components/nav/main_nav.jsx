@@ -5,13 +5,13 @@ import { NavLink } from 'react-router-dom';
 export default ({ currentUser, logout }) => {
     const display = currentUser ? (
         <div className="header-render">
-            <NavLink to="/">GreetUp Logo</NavLink>
+            <NavLink to="/"><i class="fab fa-connectdevelop"></i>GreetUp</NavLink>
             <p>Welcome, {currentUser.firstName}</p>
             <button className='nav-button' onClick={logout}>Log Out</button>
         </div>
     ) : (
             <div className="header-render">
-                <NavLink to="/">GreetUp Logo</NavLink>
+                <NavLink to="/"><i class="fab fa-connectdevelop"></i>GreetUp</NavLink>
                 <div>
                     <Link className="nav-button" to="/signup">Sign Up</Link>
                     <Link className="nav-button" to="/login">Log In</Link>
