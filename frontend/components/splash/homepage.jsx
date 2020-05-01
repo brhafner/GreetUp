@@ -49,8 +49,8 @@ class Homepage extends React.Component {
                             <a href="">Food &amp; Drink</a>
                         </li>
                         <li>
-                            {/* <img src={window.fitness} className="home-cats"/> */}
-                            <a href="">Sports &amp; Fitness</a>
+                            {/* broken pic here */}
+                            <a href="">Sports &amp; FIGHTING</a>
                         </li>
                         <li>
                             <img src={window.photography} className="home-cats"/>
