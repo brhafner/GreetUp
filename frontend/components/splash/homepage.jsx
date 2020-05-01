@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Homepage extends React.Component {
 
@@ -9,6 +10,8 @@ class Homepage extends React.Component {
                     <p className="headline">The real world is calling</p>
                     <p className="tagline">Join a local group to meet people, try something new, or do more of what you love.</p>
                     <button className="banner-button">Join GreetUp</button>
+                    {/* <Link className="banner-button" to="/signup">Join GreetUp</Link> */}
+                    {/* need to change to link but width not rendering on link, when it does on button */}
                 </div>
                 <ul className="topline-group-links">
                     <li>Join a movement</li>

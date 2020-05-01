@@ -4,14 +4,16 @@ import LoginFormContainer from './nav/login_form_container';
 import SignupFormContainer from './nav/signup_form_container';
 import { AuthRoute } from '../util/route_util';
 import Homepage from './splash/homepage'
+import Footer from './footer/footer'
 
 const App = () => (
     <div>
-        <h1>GreetUp</h1>
+        {/* <h1>GreetUp</h1> */}
         <MainNav />
         <Homepage />
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
+        <Footer />
     </div>
 );
 
