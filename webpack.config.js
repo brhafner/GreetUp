@@ -8,7 +8,12 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx', '*']
+        extensions: ['.js', '.jsx', '*'],
+        alias: {
+            assets: path.resolve('./app/assets'), // Makes it easier to reference our assets in jsx files
+            react: path.resolve('./node_modules/react'),
+            'react-dom': path.resolve('./node_modules/react-dom'),
+        },
     },
     module: {
         rules: [
@@ -21,6 +26,18 @@ module.exports = {
                         presets: ['@babel/env', '@babel/react']
                     }
                 },
+            },
+            {
+                // Ref images in rails app/assets
+                test: /\.(jpg|jpeg|png)(\?.*)?$/, // Load only .jpg .jpeg, and .png files
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name][md5:hash].[ext]', // Name of bundled asset
+                        outputPath: 'webpack-assets/', // Output location for assets. Final: `app/assets/webpack/webpack-assets/`
+                        publicPath: '/assets/webpack-assets/' // Endpoint asset can be found at on Rails server
+                    }
+                }
             }
         ]
     },

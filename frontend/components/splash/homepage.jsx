@@ -1,5 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
+// import fitness from 'assets/images/photos/fitness.jpg'
+// import pets from './pets.jpeg';
 
 class Homepage extends React.Component {
 
@@ -7,6 +9,10 @@ class Homepage extends React.Component {
         return(
             <div>
                 <div className="top-banner">
+                    {/* <video autoplay loop id="banner-vid">
+                        <source src={window.banner} type="video/mp4"/>
+                        Your browser does not support this video.
+                    </video> */}
                     <p className="headline">The real world is calling</p>
                     <p className="tagline">Join a local group to meet people, try something new, or do more of what you love.</p>
                     <button className="banner-button">Join GreetUp</button>
@@ -25,35 +31,38 @@ class Homepage extends React.Component {
                     <p className="tagline">Browse groups by topics you're interested in.</p>
                     <ul className="categories-list">
                         <li>
-                            <a href="#">-- IMAGE --</a>
+                            {/* <img src={require('../../../app/assets/images/photos/fitness.jpg')} /> */}
+                            {/* <img src={require('./pets.jpeg')} /> */}
+                            {/* <img src={pets} /> */}
+                            <img src={window.outdoors} className="home-cats" />
                             <a href="">Outdoor &amp; Adventure</a>
                         </li>
                         <li>
-                            <a href="#">-- IMAGE --</a>
-                            <p>Tech</p>
+                            <img src={window.pets} className="home-cats"/>
+                            <p>Pets</p>
                         </li>
                         <li>
-                            <a href="#">-- IMAGE --</a>
+                            <img src={window.learning} className="home-cats"/>
                             <a href="">Learning</a>
                         </li>
                         <li>
-                            <a href="#">-- IMAGE --</a>
-                            <a href="">Movementes</a>
+                            <img src={window.movement} className="home-cats"/>
+                            <a href="">Movements</a>
                         </li>
                         <li>
-                            <a href="#">-- IMAGE --</a>
+                            <img src={window.food} className="home-cats"/>
                             <a href="">Food &amp; Drink</a>
                         </li>
                         <li>
-                            <a href="#">-- IMAGE --</a>
+                            <img src={window.fitness} className="home-cats"/>
                             <a href="">Sports &amp; Fitness</a>
                         </li>
                         <li>
-                            <a href="#">-- IMAGE --</a>
+                            <img src={window.photography} className="home-cats"/>
                             <a href="">Photography</a>
                         </li>
                         <li>
-                            <a href="#">-- IMAGE --</a>
+                            <img src={window.language} className="home-cats"/>
                             <a href="">Language &amp; Culture</a>
                         </li>
                     </ul>
