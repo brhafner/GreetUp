@@ -6,7 +6,7 @@ const GroupIndexItem = ({ group, deleteGroup }) => {
         <li>
             <Link to={`/groups/${group.id}`}>{group.title}</Link>
             <Link to={`/groups/${group.id}/edit`}>Edit</Link>
-            <button onClick={() => deleteGroup(group.id)}></button>
+            <button onClick={() => deleteGroup(group.id)}>Delete Group</button>
         </li>
     )
 }

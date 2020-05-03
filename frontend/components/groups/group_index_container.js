@@ -10,7 +10,7 @@ const mSTP = (state) => ({
 
 const mDTP = (dispatch) => ({
     requestAllGroups: () => dispatch(requestAllGroups()),
-    deleteGroup: (reportId) => dispatch(deleteGroup(reportId))
+    deleteGroup: (groupId) => dispatch(deleteGroup(groupId))
 })
 
 export default connect(mSTP, mDTP)(GroupIndex);
