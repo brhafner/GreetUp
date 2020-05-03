@@ -9,9 +9,8 @@ class GroupForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault;
-        // REMOVE ONCE CITY TABLE BUILT:
-        // this.setState( {cityId: 1} )
         this.props.action(this.state)
+        this.resetForm()
     }
 
     handleChange(field){
@@ -39,13 +38,13 @@ class GroupForm extends React.Component {
 
     render(){
         let isCreate = this.props.formType === "Create";
-        // let theErrors = this.props.errors.length ? this.renderErrors() : "";
+        let theErrors = !!this.props.errors.length ? this.renderErrors() : "";
         
         return (
             <div className='group-form'>
                 <p className='form-name' >{isCreate ? "Create New Group" : "Update Group Details"}</p>
                 <form>
-                    {/* {theErrors} */}
+                    {theErrors}
                     <label className='group-form-label'>Title:
                     <input
                             type="text"

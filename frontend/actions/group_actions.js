@@ -44,19 +44,19 @@ export const createGroup = (group) => dispatch => (
     GroupApiUtil.createGroup(group)
         .then(
             group => dispatch(receieveGroup(group)),
-            errors => dispatch(receiveErrors(errors)))
+            errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
 export const updateGroup = (group) => dispatch => (
     GroupApiUtil.updateGroup(group)
         .then(
             group => dispatch(receieveGroup(group)),
-            errors => dispatch(receiveErrors(errors)))
+            errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
 export const deleteGroup = (groupId) => dispatch => (
     GroupApiUtil.deleteGroup(groupId)
         .then(
             () => dispatch(removeGroup(groupId)),
-            errors => dispatch(receiveErrors(errors)))
+            errors => dispatch(receiveErrors(errors.responseJSON)))
 );

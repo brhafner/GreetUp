@@ -12,8 +12,7 @@ class Api::GroupsController < ApplicationController
 
     def create
         @group = Group.new(group_params)
-        # @group.organizer_id = current_user.id
-        @group.organizer_id = rand(1...10)
+        @group.organizer_id = current_user.id
         if @group.save
             render :show
         else
@@ -23,26 +22,28 @@ class Api::GroupsController < ApplicationController
 
     def update
         @group = Group.find_by(id: params[:id])
-        # if @group.organizer_id != current_user.id
-        #     render json: ["You must be the group organizer to edit this group's info"], status: 422 
-        # end
-        if @group.update(group_params)
-            render :show
+        if @group.organizer_id != current_user.id
+            render json: ["You must be the group organizer to edit this group's info"], status: 422 
         else
-            render json: @group.errors.full_messages, status: 422 
+            if @group.update(group_params)
+                render :show
+            else
+                render json: @group.errors.full_messages, status: 422 
+            end
         end
     end
 
     def destroy
-        # @group = Group.find_by(id: params[:id])
+        @group = Group.find_by(id: params[:id])
         @group = Group.find(params[:id])
-        # if @group.organizer_id != current_user.id
-        #     render json: ["You must be the group organizer to delete this group"], status: 422 
-        # end
-        if @group.destroy
-            render :index
+        if @group.organizer_id != current_user.id
+            render json: ["You must be the group organizer to delete this group"], status: 422 
         else
-            render json: @group.errors.full_messages, status: 422 
+            if @group.destroy
+                render :index
+            else
+                render json: @group.errors.full_messages, status: 422 
+            end
         end
     end
 

@@ -13,16 +13,18 @@ class EditGroupForm extends React.Component {
     }
 
     render() {
-        const { action, formType, group } = this.props;
+        const { action, formType, group, errors } = this.props;
 
         if (!group) {
             return null;
         }
         return (
             <GroupForm
-                action={action}
+                group={group} 
                 formType={formType}
-                group={group} />
+                errors={errors}
+                action={action}
+                />
         );
     }
 }

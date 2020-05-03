@@ -7,6 +7,7 @@ class GroupShow extends React.Component {
     }
 
     render() {
+
         return (
             <div>
                 <h1>{this.props.group.title}</h1>

@@ -13,4 +13,4 @@ const groupErrorsReducer = (oldState = [], action) => {
 
 }
 
-export default groupErrorsReducer
+export default groupErrorsReducer;
