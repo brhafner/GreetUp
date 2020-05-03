@@ -4,6 +4,7 @@ import configureStore from './store/store'
 import Root from './components/root';
 // testing
 import {signup, login, logout } from './actions/session_actions'; 
+import { requestAllGroups } from './actions/group_actions'
 // end testing
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.logout = logout
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.requestAllGroups = requestAllGroups;
     // /testing
     ReactDOM.render(<Root store={store}/>, root);
 });
