@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-    validates :title, :about, :organizer_id, :city_id, presence: true
+    validates :title, :about, :organizer_id, :city_id, :category, presence: true
 
 
     # CHANGE THIS once you create an organizers & groupings table

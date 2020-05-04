@@ -70,6 +70,20 @@ class GroupForm extends React.Component {
                             onChange={this.handleChange("cityId")}
                             value={this.state.cityId} />
                     </label>
+                    <label className='group-form-label'>Group Category:
+                        <select 
+                            className="session-form-input"
+                            onChange={this.handleChange("category")}>
+                            <option value="Outdoors &amp; Adventure">Outdoors &amp; Adventure</option>
+                            <option value="Pets">Pets</option>
+                            <option value="Learning">Learning</option>
+                            <option value='Movement'>Movements</option>
+                            <option value="Food &amp; Drink">Food &amp; Drink</option>
+                            <option value="Sports &amp; Fitness">Sports &amp; Fitness</option>
+                            <option value="Photography">Photography</option>
+                            <option value="Language &amp; Culture">Language &amp; Culture</option>
+                        </select>
+                    </label>
                     <label className='group-form-label'>Cover Photo:
                             <input 
                                 type="text" 

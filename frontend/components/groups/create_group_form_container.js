@@ -8,7 +8,8 @@ const mSTP = (state) => ({
          title: "",
          about: "", 
          organizerId: "", 
-         cityId: "" 
+         cityId: "",
+         category: "" 
         },
     formType: "Create",
     errors: state.errors.group

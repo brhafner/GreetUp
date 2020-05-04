@@ -7,6 +7,7 @@
     json.about group.about
     json.organizer_id group.organizer_id
     json.city_id group.city_id
+    json.category group.category
   end
 end
 

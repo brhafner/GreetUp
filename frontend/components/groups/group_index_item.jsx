@@ -6,9 +6,7 @@ class GroupIndexItem extends React.Component{
 
     render() {
 
-        let { group, deleteGroup, currentUserId } = this.props
-        
-
+        let { group } = this.props
             return (
             <li>
                 <Link to={`/groups/${group.id}`}>{group.title}</Link>
