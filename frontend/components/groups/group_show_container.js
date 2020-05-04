@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 import GroupShow from './group_show';
-import { requestGroup } from '../../actions/group_actions';
+import { requestGroup, deleteGroup } from '../../actions/group_actions';
 
 
 const mSTP = (state, ownProps) => ({
-    group: state.entities.groups[ownProps.match.params.groupId]
+    group: state.entities.groups[ownProps.match.params.groupId],
+    currentUserId: state.session.currentUserId
 })
 
 const mDTP = (dispatch) => ({
-    requestGroup: (groupId) => dispatch(requestGroup(groupId))
+    requestGroup: (groupId) => dispatch(requestGroup(groupId)),
+    deleteGroup: (groupId) => dispatch(deleteGroup(groupId))
 })
 
 export default connect(mSTP, mDTP)(GroupShow);

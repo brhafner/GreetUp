@@ -10,7 +10,6 @@ class GroupIndex extends React.Component {
 
     render() {
         let { groups, deleteGroup } = this.props;
-
         if (!groups) {
             return null;
         }

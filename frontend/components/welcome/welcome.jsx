@@ -6,23 +6,28 @@ import EditGroupFormContainer from '../groups/edit_group_form_container';
 import GroupShowContainer from '../groups/group_show_container';
 
 const WelcomePage = (props) => {
+    // let isWelcome = 
+    //                 <div className="welcom-head">
+    //                     <div className="welcome-profile-banner">
+    //                         <p className="maintext">Find your next event</p>
+    //                         <p className="subtext">There is 1 event in your groups </p>
+    //                         <p className="subtext">35 events near you</p>
+    //                     </div>
+    //                 </div>
+    
     return (
         <div>
-            <div className="welcom-head">
-                <div className="welcome-profile-banner">
-                    <p className="maintext">Find your next event</p>
-                    <p className="subtext">There is 1 event in your groups </p>
-                    <p className="subtext">35 events near you</p>
-                </div>       
-            </div>
             
             <p>The welcome page</p>
             <Link to="/groups/">Groups Index Page</Link>
-            {/* <Switch> */}
+            <Route exact path="/groups/" component={GroupIndexContainer} />
+            <br/>
+            
+            <Switch>
                 <Route path="/groups/new" component={CreateGroupFormContainer} />
                 <Route path="/groups/:groupId/edit" component={EditGroupFormContainer} />
-                <Route path="/groups/:groupId" component={GroupShowContainer} />  
-                <Route exact path="/groups/" component={GroupIndexContainer} />
+                <Route path="/groups/:groupId" component={GroupShowContainer} />
+            </Switch>
                 {/* Route === optionally render this component if it matches said route */}
             {/* </Switch>  */}
             {/* <GroupShowContainer /> */}

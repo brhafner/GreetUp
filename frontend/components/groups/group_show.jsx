@@ -7,7 +7,11 @@ class GroupShow extends React.Component {
     }
 
     render() {
-
+        let { group, deleteGroup, currentUserId } = this.props
+        let organizerTools = <div className="item-show-manag-container">
+            <Link className="item-show-manage" to={`/groups/${group.id}/edit`}>Edit Group Info</Link><br/>
+            <button className="item-show-manage" onClick={() => deleteGroup(group.id)}>Delete This Group</button>
+        </div>
         return (
             <div className="item-show">
                 <Link to='/groups'>Return to Group Index Page</Link>
@@ -17,6 +21,7 @@ class GroupShow extends React.Component {
                         <p className="item-title">{this.props.group.title}</p>
                         <p>324 Members</p>
                         <p>Organized by: {this.props.group.organizerId}</p>
+                        {group.organizerId === currentUserId ? organizerTools : ""}
                     </div>
                 </div>
                 <ul className="second-nav">

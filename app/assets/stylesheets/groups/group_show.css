@@ -25,6 +25,20 @@
     padding: 6px
 }
 
+.item-show-manag-container{
+    margin-top: 10px;
+}
+
+.item-show-manage{
+    padding: 6px;
+    color: #2e3e48;
+    font-size: 14px;
+}
+
+.item-show-manage:hover{
+    color: #0098ab;
+    cursor: pointer;
+}
 .item-show-content{
     border-top: 1px solid #ccc;
     display: flex;

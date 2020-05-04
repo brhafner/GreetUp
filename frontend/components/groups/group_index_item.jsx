@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const GroupIndexItem = ({ group, deleteGroup }) => {
-    return (
-        <li>
-            <Link to={`/groups/${group.id}`}>{group.title}</Link>
-            <Link to={`/groups/${group.id}/edit`}>Edit</Link>
-            <button onClick={() => deleteGroup(group.id)}>Delete Group</button>
-        </li>
-    )
+
+class GroupIndexItem extends React.Component{
+
+    render() {
+
+        let { group, deleteGroup, currentUserId } = this.props
+        
+
+            return (
+            <li>
+                <Link to={`/groups/${group.id}`}>{group.title}</Link>
+            </li>
+        )
+    }
 }
 
 export default GroupIndexItem;
