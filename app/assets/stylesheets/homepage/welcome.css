@@ -1,0 +1,22 @@
+.welcome-profile-banner{
+    margin-top: 30px;
+    background-color: #00455d;
+    height: 170px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.welcome-profile-banner .maintext{
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 700px;
+}
+
+.welcome-profile-banner .subtext{
+    color: rgba(225, 225, 225, 0.7);
+    font-size: 16px;
+    font-weight: 400px;
+}

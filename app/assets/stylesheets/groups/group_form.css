@@ -1,0 +1,13 @@
+.group-form{
+    font-weight: bold;
+    line-height: 1.45;
+    padding: 20px;
+    margin-top: 35px;
+    margin-bottom: 50px;
+    max-width: 500px;
+    box-sizing: border-box;
+    border: 1px solid lightgrey;
+    display: inline-block;
+    text-align: left;
+    border-radius: 2px;
+}
