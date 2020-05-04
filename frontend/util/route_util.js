@@ -21,7 +21,7 @@ const Protected = ({ loggedIn, path, exact, component: Component }) => (
     />
 );
 
-const mSTP = state => ({
+const mSTP = (state) => ({
     loggedIn: Boolean(state.session.currentUserId)
 })
 
