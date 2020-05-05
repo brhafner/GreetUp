@@ -7,12 +7,15 @@ class Api::GroupsController < ApplicationController
 
     def show
         @group = Group.find_by(id: params[:id])
+        # .with_attached_photos
         render :show
     end
 
     def create
         @group = Group.new(group_params)
         @group.organizer_id = current_user.id
+        add_template_photo(@group) unless @group.photo.attached? 
+        
         if @group.save
             render :show
         else
@@ -23,34 +26,32 @@ class Api::GroupsController < ApplicationController
     def update
         @group = Group.find_by(id: params[:id])
         @group.city_id = 1
-        #     render json: ["You must be the group organizer to edit this group's info"], status: 422 
-        # else
-            if @group.update(group_params)
-                # render :show
-                render json: ['true'], status: 200 
-                
-            else
-                render json: @group.errors.full_messages, status: 422 
-            end
-        # end
+        if @group.update(group_params)
+            render json: ['true'], status: 200 
+            
+        else
+            render json: @group.errors.full_messages, status: 422 
+        end
     end
 
     def destroy
         @group = Group.find_by(id: params[:id])
-        # if @group.organizer_id != current_user.id
-        #     render json: ["You must be the group organizer to delete this group"], status: 422 
-        # else
-            if @group.destroy
-                # render :index
-                render json: ["Group Deleted"], status: 200
-            else
-                render json: @group.errors.full_messages, status: 422 
-            end
-        # end
+        if @group.destroy
+            render json: ["Group Deleted"], status: 200
+        else
+            render json: @group.errors.full_messages, status: 422 
+        end
     end
 
     private
     def group_params
         params.require(:group).permit(:title, :about, :category, :city_id)
     end
+
+    def add_template_photo(group)
+        file = File.open('app/assets/images/image_icon.png')
+        group.photo.attach(io: file, filename: 'image_icon.png')
+    end
 end
+
+# template image icon credit: https://www.iconfinder.com/Myart

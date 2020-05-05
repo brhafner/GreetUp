@@ -11,6 +11,7 @@ class GroupShow extends React.Component {
 
     componentDidMount() {
         this.props.requestGroup(this.props.group.id)
+        // this.props.requestGroup(this.props.ownProps.match.params.groupId)
     }
 
     handleDelete(groupId){
@@ -33,6 +34,7 @@ class GroupShow extends React.Component {
             <Link className="item-show-manage" to={`/groups/${group.id}/edit`}>Edit Group Info</Link><br/>
             <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
         </div>
+        
         return (
             <div className="item-show">
                 <Link to='/groups'>Return to Group Index Page</Link>

@@ -11,7 +11,10 @@ class GroupForm extends React.Component {
     handleSubmit(e){
         e.preventDefault;
         this.props.action(this.state)
-            .then(() => this.props.history.push(`/groups/${this.state.id}`))
+            .then(() => this.props.history.push(`/groups/`))
+            // The below does not work on create bc it does not have an id yet
+            // refactor to extract id out of json response
+            // .then(() => this.props.history.push(`/groups/${this.state.id}`))
     }
 
     handleChange(field){
