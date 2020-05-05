@@ -1,16 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+
 
 class GroupShow extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {toIndex: false}
+        this.handleDelete = this.handleDelete.bind(this)
+    }
+
     componentDidMount() {
         this.props.requestGroup(this.props.group.id)
     }
 
+    handleDelete(groupId){
+        this.props.deleteGroup(groupId)
+            .then(() => {
+                this.props.history.push('/groups')
+            })
+    };
+
+
     render() {
-        let { group, deleteGroup, currentUserId } = this.props
+        
+        let { group, currentUserId } = this.props;
+
+        if (!group) {
+            return null;
+        }
+
         let organizerTools = <div className="item-show-manag-container">
             <Link className="item-show-manage" to={`/groups/${group.id}/edit`}>Edit Group Info</Link><br/>
-            <button className="item-show-manage" onClick={() => deleteGroup(group.id)}>Delete This Group</button>
+            <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
         </div>
         return (
             <div className="item-show">

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { requestGroup, updateGroup } from '../../actions/group_actions';
 import GroupForm from './group_form'
 
+import {withRouter} from 'react-router-dom';
+
 class EditGroupForm extends React.Component {
 
     componentDidMount() {
@@ -13,7 +15,7 @@ class EditGroupForm extends React.Component {
     }
 
     render() {
-        const { action, formType, group, errors } = this.props;
+        const { action, formType, group, errors, history} = this.props;
 
         if (!group) {
             return null;
@@ -24,6 +26,7 @@ class EditGroupForm extends React.Component {
                 formType={formType}
                 errors={errors}
                 action={action}
+                history={history}
                 />
         );
     }
@@ -41,4 +44,4 @@ const mDTP = (dispatch) => ({
     requestGroup: (groupId) => dispatch(requestGroup(groupId))
 })
 
-export default connect(mSTP, mDTP)(EditGroupForm);
+export default withRouter(connect(mSTP, mDTP)(EditGroupForm));

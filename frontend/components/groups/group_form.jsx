@@ -4,13 +4,14 @@ class GroupForm extends React.Component {
     constructor(props){
         super(props)
         this.state = this.props.group
+        this.state.cityId = 1
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit(e){
         e.preventDefault;
         this.props.action(this.state)
-        this.resetForm()
+            .then(() => this.props.history.push('/groups'))
     }
 
     handleChange(field){
@@ -37,9 +38,11 @@ class GroupForm extends React.Component {
     }
 
     render(){
+        if (this.state.toIndex === true) {
+            return <Redirect to='/' />
+        }
         let isCreate = this.props.formType === "Create";
         let theErrors = !!this.props.errors.length ? this.renderErrors() : "";
-        
         return (
             <div className='group-form'>
                 <p className='form-name' >{isCreate ? "Create New Group" : "Update Group Details"}</p>
@@ -62,18 +65,22 @@ class GroupForm extends React.Component {
                             value={this.state.about}>
                         </textarea>
                     </label>
-                    <label className='group-form-label'>City_ID:
+                    {/* <label className='group-form-label'>City_ID:
                         <input 
                             type="text" 
                             className="session-form-input"
                             placeholder="City Dropdown will go Here" 
                             onChange={this.handleChange("cityId")}
                             value={this.state.cityId} />
-                    </label>
+                    </label> */}
                     <label className='group-form-label'>Group Category:
                         <select 
+                            defaultValue="none"
                             className="session-form-input"
                             onChange={this.handleChange("category")}>
+                            <option value="none" disabled hidden >
+                                Select a Category to help people find your group
+                            </option>
                             <option value="Outdoors &amp; Adventure">Outdoors &amp; Adventure</option>
                             <option value="Pets">Pets</option>
                             <option value="Learning">Learning</option>
