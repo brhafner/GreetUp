@@ -11,7 +11,7 @@ class GroupForm extends React.Component {
     handleSubmit(e){
         e.preventDefault;
         this.props.action(this.state)
-            .then(() => this.props.history.push('/groups'))
+            .then(() => this.props.history.push(`/groups/${this.state.id}`))
     }
 
     handleChange(field){

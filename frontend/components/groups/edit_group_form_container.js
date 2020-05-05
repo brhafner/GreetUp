@@ -8,10 +8,7 @@ import {withRouter} from 'react-router-dom';
 class EditGroupForm extends React.Component {
 
     componentDidMount() {
-        // this.props.requestGroup(this.props.group.id)
         this.props.requestGroup(this.props.group.id)
-        // this.props.requestGroup(this.state.groups[ownProps.match.params.groupId])
-        // may need to match.params this, but test in browser
     }
 
     render() {
