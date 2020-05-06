@@ -9,7 +9,8 @@ const mSTP = (state) => ({
          about: "", 
          organizerId: "", 
          cityId: "",
-         category: "" 
+         category: "",
+         photoFile: null 
         },
     formType: "Create",
     errors: state.errors.group

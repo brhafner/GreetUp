@@ -10,7 +10,19 @@ class GroupForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault;
-        this.props.action(this.state)
+        const formData = new FormData();
+        if (this.props.formType === 'Update'){
+            formData.append('group[id]', this.state.id);
+        }
+        formData.append('group[title]', this.state.title);
+        formData.append('group[about]', this.state.about);
+        formData.append('group[organizerId]', this.state.organizerId);
+        formData.append('group[cityId]', this.state.cityId);
+        formData.append('group[category]', this.state.category);
+        if (this.state.photoFile) {
+            formData.append('group[photo]', this.state.photoFile);
+        }
+        this.props.action(formData)
             .then(() => this.props.history.push(`/groups/`))
             // The below does not work on create bc it does not have an id yet
             // refactor to extract id out of json response
@@ -21,14 +33,22 @@ class GroupForm extends React.Component {
         return (e) => this.setState({[field]: e.currentTarget.value})
     }
 
-    resetForm() {
-        this.setState({
-            title: "",
-            about: "",
-            organizerId: "",
-            cityId: ""
-        })
+    handleFile(e) {
+        // debugger
+        this.setState({photoFile: e.currentTarget.files[0]})
+        // return (e) => this.setState({photoFile: e.currentTarget.files[0]});
     }
+
+    // resetForm() {
+    //     this.setState({
+    //         title: "",
+    //         about: "",
+    //         organizerId: "",
+    //         cityId: "",
+    //         category: "",
+    //         photoFile: null
+    //     })
+    // }
 
     renderErrors() {
         return (
@@ -41,6 +61,7 @@ class GroupForm extends React.Component {
     }
 
     render(){
+        // console.log(this.state)
         if (this.state.toIndex === true) {
             return <Redirect to='/' />
         }
@@ -94,11 +115,12 @@ class GroupForm extends React.Component {
                             <option value="Language &amp; Culture">Language &amp; Culture</option>
                         </select>
                     </label>
-                    <label className='group-form-label'>Cover Photo:
+                    <label className='group-form-label'>Upload Cover Photo:
                             <input 
-                                type="text" 
-                                className="session-form-input"
-                                placeholder="Cover Photo Upload will go Here" />
+                                type="file" 
+                                onChange={this.handleFile.bind(this)}
+                                // className="session-form-input"
+                                />
                     </label>
                     <button
                         className="session-submit"

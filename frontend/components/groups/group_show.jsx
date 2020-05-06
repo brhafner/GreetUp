@@ -34,12 +34,12 @@ class GroupShow extends React.Component {
             <Link className="item-show-manage" to={`/groups/${group.id}/edit`}>Edit Group Info</Link><br/>
             <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
         </div>
-        
+
         return (
             <div className="item-show">
                 <Link to='/groups'>Return to Group Index Page</Link>
                 <div className="item-show-head">
-                    <span className="item-profile-picture"></span>
+                    <img src={group.photoUrl} alt="template_img" className="item-profile-picture"></img>
                     <div className="top-line-info">
                         <p className="item-title">{this.props.group.title}</p>
                         <p>324 Members</p>

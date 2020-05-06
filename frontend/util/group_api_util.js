@@ -11,21 +11,27 @@ export const fetchGroup = (groupId) => (
     })
 )
 
-export const createGroup = (group) => (
-    $.ajax({
+export const createGroup = (group) => {
+    debugger
+   return $.ajax({
         url: '/api/groups',
         method: 'POST',
-        data: { group }
+        data: group,
+        contentType: false,
+        processData: false
     })
-)
+}
 
-export const updateGroup = (group) => (
-    $.ajax({
-        url: `/api/groups/${group.id}`,
+export const updateGroup = (group) => {
+    debugger
+    return $.ajax({
+        url: `/api/groups/${group.get('group[id]')}`,
         method: 'PATCH',
-        data: { group }
+        data: group,
+        contentType: false,
+        processData: false
     })
-)
+}
 
 export const deleteGroup = (groupId) => (
     $.ajax({

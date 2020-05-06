@@ -14,6 +14,7 @@ class Api::GroupsController < ApplicationController
     def create
         @group = Group.new(group_params)
         @group.organizer_id = current_user.id
+        @group.city_id = 1
         add_template_photo(@group) unless @group.photo.attached? 
         
         if @group.save
@@ -28,7 +29,6 @@ class Api::GroupsController < ApplicationController
         @group.city_id = 1
         if @group.update(group_params)
             render json: ['true'], status: 200 
-            
         else
             render json: @group.errors.full_messages, status: 422 
         end
@@ -45,7 +45,7 @@ class Api::GroupsController < ApplicationController
 
     private
     def group_params
-        params.require(:group).permit(:title, :about, :category, :city_id)
+        params.require(:group).permit(:title, :about, :category, :city_id, :photo)
     end
 
     def add_template_photo(group)
