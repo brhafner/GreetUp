@@ -23,15 +23,14 @@ class GroupPanel extends React.Component{
 
         return (
             <div>
-                this is the Group panel
-                <div className='tabs'>
+                <div>
                     <Headers
                         selectedPanel={this.state.selectedPanel}
                         onTabChosen={this.selectTab}
                         panes={this.panels}>
                     </Headers>
-                    <div className='tab-content'>
-                        <article>
+                    <div >
+                        <article className='show-about-body'>
                             {pane.content}
                         </article>
                     </div>

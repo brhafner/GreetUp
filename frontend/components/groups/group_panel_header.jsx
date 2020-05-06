@@ -8,7 +8,7 @@ class Headers extends React.Component {
             const klass = index === selected ? 'active' : '';
 
             return (
-                <li
+                <li className="show-about-body"
                     key={index}
                     className={klass}
                     onClick={() => this.props.onTabChosen(index)}>
@@ -19,10 +19,9 @@ class Headers extends React.Component {
 
 
         return (
-            <ul className='tab-header'>
+            <ul className="second-nav">
                 {headers}
             </ul>
-
         );
     }
 }

@@ -28,7 +28,7 @@ class GroupShow extends React.Component {
             return null;
         }
 
-        let organizerTools = <div className="item-show-manag-container">
+        let organizerTools = <div className="item-show-manage-container">
             <Link className="item-show-manage" to={`/groups/${group.id}/edit`}>Edit Group Info</Link><br/>
             <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
         </div>
@@ -45,7 +45,19 @@ class GroupShow extends React.Component {
                         {group.organizerId === currentUserId ? organizerTools : ""}
                     </div>
                 </div>
-                <GroupPanel group={group}/>
+                <div className="item-show-content">
+                    <div className="left">
+                        <GroupPanel group={group} />
+                    </div>
+                    <div className='right'>
+                        <p className="show-about-title">Organizers</p>
+                        <div className="show-about-details">
+                            <p>Organizer_PHOTO</p>
+                            <p>Organizer_FirstName</p>
+                        </div>
+                        <button className="session-submit">Join Group</button>
+                    </div>
+                </div>
             </div>
         )
     }
