@@ -19,3 +19,7 @@
     font-size: 14px;
     font-weight: 400;
 }
+
+.nav-button:hover{
+    color: #f64060
+}

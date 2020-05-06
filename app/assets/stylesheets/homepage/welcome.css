@@ -1,3 +1,9 @@
+.welcome-page-container{
+    background: #ebebeb;
+    min-height: 600px;
+}
+
+
 .welcome-profile-banner{
     margin-top: 30px;
     background-color: #00455d;
@@ -13,10 +19,34 @@
     color: #ffffff;
     font-size: 34px;
     font-weight: 700px;
+    padding-bottom: 10px;
 }
 
 .welcome-profile-banner .subtext{
     color: rgba(225, 225, 225, 0.7);
     font-size: 16px;
     font-weight: 400px;
+}
+
+
+.welcome-item-show-container{
+    width: 70%;
+    box-sizing: border-box;
+    margin-top: 30px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.welcome-item{
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid lightgrey;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.welcome-item-time{
+    width: 50px;
+    margin: 20px;
 }

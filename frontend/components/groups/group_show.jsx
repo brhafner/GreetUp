@@ -5,7 +5,6 @@ import { Link, Redirect } from 'react-router-dom';
 class GroupShow extends React.Component {
     constructor(props){
         super(props)
-        this.state = {toIndex: false}
         this.handleDelete = this.handleDelete.bind(this)
     }
 

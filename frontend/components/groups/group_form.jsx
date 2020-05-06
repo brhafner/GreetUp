@@ -34,9 +34,7 @@ class GroupForm extends React.Component {
     }
 
     handleFile(e) {
-        // debugger
         this.setState({photoFile: e.currentTarget.files[0]})
-        // return (e) => this.setState({photoFile: e.currentTarget.files[0]});
     }
 
     // resetForm() {
@@ -61,7 +59,7 @@ class GroupForm extends React.Component {
     }
 
     render(){
-        // console.log(this.state)
+        
         if (this.state.toIndex === true) {
             return <Redirect to='/' />
         }
@@ -119,8 +117,8 @@ class GroupForm extends React.Component {
                             <input 
                                 type="file" 
                                 onChange={this.handleFile.bind(this)}
-                                // className="session-form-input"
-                                />
+                                className="session-form-input"
+                            />
                     </label>
                     <button
                         className="session-submit"
