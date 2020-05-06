@@ -41,6 +41,7 @@
     margin: 20px;
     padding: 10px;
     border: 2px solid lightgrey;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: row;
     align-items: center;

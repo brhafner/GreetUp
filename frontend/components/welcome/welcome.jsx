@@ -11,8 +11,6 @@ const WelcomePage = (props) => {
     return (
         <div className="welcome-page-container">
             <Route exact path="/" component={WelcomeHeader} />
-            {/* <Link to="/groups/" className="session-submit">Groups Index Page</Link> */}
-            {/* <Route exact path="/groups/" component={GroupIndexContainer} /> */}
            <Switch>
                 <Route exact path="/groups/" component={GroupIndexContainer} />  
                 <Route path="/groups/new" component={CreateGroupFormContainer} />
@@ -21,18 +19,6 @@ const WelcomePage = (props) => {
                 <Link to="/groups/" className="session-submit">Groups Index Page</Link>
            </Switch>
             <Route exact path="/" component={WelcomeIndexItems} />
-            
-            <Switch>
-                {/* <Route path="/groups/new" component={CreateGroupFormContainer} />
-                <Route path="/groups/:groupId/edit" component={EditGroupFormContainer} />
-                <Route path="/groups/:groupId" component={GroupShowContainer} /> */}
-            </Switch>
-                {/* Route === optionally render this component if it matches said route */}
-            {/* </Switch>  */}
-            {/* <GroupShowContainer /> */}
-            {/* <GroupIndexContainer /> */}
-            {/* refactor to show user's groups */}
-            {/* <Link to='/groups'>Check out all Groups </Link>*/}
         </div>
     )
 }

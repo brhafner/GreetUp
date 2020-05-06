@@ -4,8 +4,9 @@ import { requestGroup, deleteGroup } from '../../actions/group_actions';
 
 
 const mSTP = (state, ownProps) => {
-    // debugger
+    const groupId = parseInt(ownProps.match.params.groupId);
     return {
+        groupId: groupId,
         group: state.entities.groups[ownProps.match.params.groupId],
         currentUserId: state.session.currentUserId
     }

@@ -9,8 +9,7 @@ class GroupShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestGroup(this.props.group.id)
-        // this.props.requestGroup(this.props.ownProps.match.params.groupId)
+        this.props.requestGroup(this.props.groupId)
     }
 
     handleDelete(groupId){
