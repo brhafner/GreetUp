@@ -47,6 +47,7 @@
 .item-show-content{
     border-top: 1px solid #ccc;
     padding: 0 20px;
+    min-height: 300px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
@@ -79,13 +80,15 @@
 .show-about-body{
     font-size: 16px;
     max-width: 700px;
+    min-height: 400px;
     background-color: #ffffff;
     padding: 15px 15px 10px 15px;
+    border-top: 1px solid #ccc;
 }
 
 /* Following on Group Panel component and Children */
 .second-nav{
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     background-color: #ffffff;
     padding: 15px 15px 10px 15px;
     display: flex;

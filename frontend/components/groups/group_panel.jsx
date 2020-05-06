@@ -20,6 +20,7 @@ class GroupPanel extends React.Component{
 
     render() {
         const pane = this.panels[this.state.selectedPanel];
+        const filterContent = pane.content === this.props.group.photoUrl ? <img src={pane.content}/> : pane.content
 
         return (
             <div>
@@ -31,7 +32,7 @@ class GroupPanel extends React.Component{
                     </Headers>
                     <div >
                         <article className='show-about-body'>
-                            {pane.content}
+                            {filterContent}
                         </article>
                     </div>
                 </div>

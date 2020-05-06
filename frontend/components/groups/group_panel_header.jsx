@@ -5,18 +5,17 @@ class Headers extends React.Component {
         const selected = this.props.selectedPanel;
         const headers = this.props.panes.map((pane, index) => {
             const title = pane.title;
-            const klass = index === selected ? 'active' : '';
+            const isActive = index === selected ? 'active' : '';
 
             return (
                 <li className="show-about-body"
                     key={index}
-                    className={klass}
+                    className={isActive}
                     onClick={() => this.props.onTabChosen(index)}>
                     {title}{' '}
                 </li>
             );
         });
-
 
         return (
             <ul className="second-nav">
