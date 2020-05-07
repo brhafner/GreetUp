@@ -195,7 +195,7 @@ the passion of Chinese calligraphy as a modern art form."
 # create groups
 group1 = Group.create(title: "SF Urban Treks", about: about1, organizer_id: user1.id, city_id: "1", category: category1)
 group2 = Group.create(title: "US Hiking - Bay Area Chapter", about: about2, organizer_id: user2.id, city_id: "1", category: category1)
-group3 = Group.create(title: "SF Bay Area Moto Meetup", about: , organizer_id: user3.id, city_id: "1", category: category1)
+group3 = Group.create(title: "SF Bay Area Moto Meetup", about: about3, organizer_id: user3.id, city_id: "1", category: category1)
 
 group4 = Group.create(title: "BarkHappy SF Area Dog Friends", about: about4, organizer_id: user4.id, city_id: "1", category: category2)
 group5 = Group.create(title: "SF Doodles", about: about5, organizer_id: user5.id, city_id: "1", category: category2)
@@ -217,7 +217,7 @@ group16 = Group.create(title: "Pickup soccer in Golden Gate Park", about: about1
 group17 = Group.create(title: "Stay Fit & Have FUN!", about: about17, organizer_id: user17.id, city_id: "1", category: category6)
 group18 = Group.create(title: "Bay Area Tennis", about: about18, organizer_id: user18.id, city_id: "1", category: category6)
 
-group19 = Group.create(title: "SF Photography Lovers!", about: about19, organizer_id: user19.id, city_id: "1", category: category7†)
+group19 = Group.create(title: "SF Photography Lovers!", about: about19, organizer_id: user19.id, city_id: "1", category: category7)
 group20 = Group.create(title: "Bay Area Photography Events", about: about20, organizer_id: user20.id, city_id: "1", category: category7)
 group21 = Group.create(title: "The Society of Travel Photographers", about: about21, organizer_id: user21.id, city_id: "1", category: category7)
 
