@@ -35,7 +35,7 @@ class GroupShow extends React.Component {
 
         return (
             <div className="item-show">
-                <Link to='/groups'>Return to Group Index Page</Link>
+                <Link to='/groups' className="item-show-manage">Return to Group Index Page</Link>
                 <div className="item-show-head">
                     <img src={group.photoUrl} alt="template_img" className="item-profile-picture"></img>
                     <div className="top-line-info">
@@ -43,6 +43,8 @@ class GroupShow extends React.Component {
                         <p>324 Members</p>
                         <p>Organized by: {this.props.group.organizerId}</p>
                         {group.organizerId === currentUserId ? organizerTools : ""}
+                        {/* <button className="session-submit">Join Group</button>
+                        <Link to='/groups' className="session-submit">Return to Group Index Page</Link> */}
                     </div>
                 </div>
                 <div className="item-show-content">

@@ -8,8 +8,11 @@ class GroupIndexItem extends React.Component{
 
         let { group } = this.props
             return (
-            <li>
-                <Link to={`/groups/${group.id}`}>{group.title}</Link>
+            <li> 
+                <div>
+                    <img src={group.photoUrl} className/>
+                    <Link to={`/groups/${group.id}`}>{group.title}</Link>
+                </div>
             </li>
         )
     }
