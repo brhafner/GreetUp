@@ -109,3 +109,12 @@
 .active {
     font-weight: 700;
 }
+
+.group-index-name{
+    color: #2e3e48;
+    font-size: 16px;
+}
+.group-index-name:hover{
+    color: #0098ab;
+    cursor: pointer;
+}

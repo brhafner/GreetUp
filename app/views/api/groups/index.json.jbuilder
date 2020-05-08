@@ -8,6 +8,7 @@
     json.city_id group.city_id
     json.category group.category
     json.photo_url url_for(group.photo)
+    json.organizer group.organizer, :first_name
   end
 end
 

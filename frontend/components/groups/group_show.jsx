@@ -23,6 +23,7 @@ class GroupShow extends React.Component {
     render() {
         
         let { group, currentUserId } = this.props;
+        let organizerName = this.props.group.organizer.firstName
 
         if (!group) {
             return null;
@@ -34,6 +35,7 @@ class GroupShow extends React.Component {
         </div>
 
         return (
+            
             <div className="item-show">
                 <Link to='/groups' className="item-show-manage">Return to Group Index Page</Link>
                 <div className="item-show-head">
@@ -41,7 +43,7 @@ class GroupShow extends React.Component {
                     <div className="top-line-info">
                         <p className="item-title">{this.props.group.title}</p>
                         <p>324 Members</p>
-                        <p>Organized by: {this.props.group.organizerId}</p>
+                        <p>Organized by: {organizerName} </p>
                         {group.organizerId === currentUserId ? organizerTools : ""}
                         {/* <button className="session-submit">Join Group</button>
                         <Link to='/groups' className="session-submit">Return to Group Index Page</Link> */}
@@ -55,7 +57,7 @@ class GroupShow extends React.Component {
                         <p className="show-about-title">Organizers</p>
                         <div className="show-about-details">
                             <p>Organizer_PHOTO</p>
-                            <p>Organizer_FirstName</p>
+                            <p>{organizerName}</p>
                         </div>
                         <button className="session-submit">Join Group</button>
                     </div>

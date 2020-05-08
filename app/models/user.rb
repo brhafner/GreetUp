@@ -5,6 +5,10 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    has_many :groups,
+        foreign_key: :organizer_id,
+        class_name: :Group
+
     after_initialize :ensure_session_token
 
     def self.find_by_credentials(email, password)

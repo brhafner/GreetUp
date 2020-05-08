@@ -6,7 +6,7 @@ export default ({ currentUser, logout }) => {
     const display = currentUser ? (
         <div className="header-render">
             <NavLink to="/" className="mainLogo">GreetUp</NavLink>
-            <p>Welcome, {currentUser.firstName}</p>
+            <p className="nav-welcome-message">Welcome {currentUser.firstName}</p>
             <button className='nav-button' onClick={logout}>Log Out</button>
         </div>
     ) : (
