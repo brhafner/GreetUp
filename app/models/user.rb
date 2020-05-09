@@ -6,8 +6,13 @@ class User < ApplicationRecord
     attr_reader :password
 
     has_many :groups,
-        foreign_key: :organizer_id,
-        class_name: :Group
+    foreign_key: :organizer_id,
+    class_name: :Group
+
+    has_many :memberships
+
+    has_many :groups_memberships,
+    through: :memberships
 
     after_initialize :ensure_session_token
 

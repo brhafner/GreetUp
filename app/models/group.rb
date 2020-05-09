@@ -4,13 +4,13 @@ class Group < ApplicationRecord
     has_one_attached :photo
 
     belongs_to :organizer,
-        foreign_key: :organizer_id,
-        class_name: :User
+    foreign_key: :organizer_id,
+    class_name: :User
 
+    has_many :memberships
 
+    has_many :members,
+    through: :memberships,
+    source: :user
 
-    # CHANGE THIS once you create an organizers & groupings table
-    # has_many :groupees,
-    #     through: :goupings
-    #     source: :users
 end
