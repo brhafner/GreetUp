@@ -8,23 +8,23 @@ class Homepage extends React.Component {
         return(
             <div>
                 <div className="top-banner">
-                    <video id="banner-vid" autoPlay loop muted>
-                        <source src={window.banner} type="video/mp4"/>
-                        Your browser does not support this video.
-                    </video>
                     <p className="headline">The real world is calling</p>
                     <p className="tagline">Join a local group to meet people, try something new, or do more of what you love.</p>
                     {/* <button className="banner-button">Join GreetUp</button> */}
                     <NavLink className="banner-button" to="/signup">Join GreetUp</NavLink>
                     {/* need to change to link but width not rendering on link, when it does on button */}
                 </div>
-                <ul className="topline-group-links">
+                <video id="banner-vid" autoPlay loop muted>
+                    <source src={window.banner} type="video/mp4" />
+                        Your browser does not support this video.
+                </video>
+                {/* <ul className="topline-group-links">
                     <li>Join a movement</li>
                     <li>Learn to cook</li>
                     <li>Train for a marathon</li>
                     <li>Build a mobile app</li>
                     <li>Hike a mountain</li>
-                </ul>
+                </ul> */}
                 <div className="categories-list-container">
                     <h3 className="headline">Categories</h3>
                     <p className="tagline">Browse groups by topics you're interested in.</p>
