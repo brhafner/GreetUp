@@ -9,7 +9,7 @@ class GroupForm extends React.Component {
     }
 
     handleSubmit(e){
-        e.preventDefault;
+        e.preventDefault();
         const formData = new FormData();
         if (this.props.formType === 'Update'){
             formData.append('group[id]', this.state.id);
