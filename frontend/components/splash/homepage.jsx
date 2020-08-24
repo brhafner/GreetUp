@@ -12,7 +12,6 @@ class Homepage extends React.Component {
                     <p className="tagline">Join a local group to meet people, try something new, or do more of what you love.</p>
                     {/* <button className="banner-button">Join GreetUp</button> */}
                     <NavLink className="banner-button" to="/signup">Join GreetUp</NavLink>
-                    {/* need to change to link but width not rendering on link, when it does on button */}
                 </div>
                 <video id="banner-vid" autoPlay loop muted>
                     <source src={window.banner} type="video/mp4" />
