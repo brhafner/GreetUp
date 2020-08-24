@@ -1,16 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+
 class Homepage extends React.Component {
 
     render(){
         return(
             <div>
                 <div className="top-banner">
-                    {/* <video autoplay loop id="banner-vid">
+                    <video id="banner-vid" autoPlay loop muted>
                         <source src={window.banner} type="video/mp4"/>
                         Your browser does not support this video.
-                    </video> */}
+                    </video>
                     <p className="headline">The real world is calling</p>
                     <p className="tagline">Join a local group to meet people, try something new, or do more of what you love.</p>
                     {/* <button className="banner-button">Join GreetUp</button> */}

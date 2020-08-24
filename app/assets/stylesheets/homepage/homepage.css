@@ -2,9 +2,15 @@
   /* position: absolute; */
   /* right: 0;
   bottom: 0; */
-  min-width: 100%;
-  min-height: 430px;
-  /* max-height: 430px; */
+  /* min-height: 430px;
+  max-height: 500px; */
+  /* min-width: 100%; */
+  /* background-image: url("../../images/banner.mp4"); */
+  width: 100vw;
+  max-height: min-content;
+  margin: 0;
+  z-index: -1;
+  /* overflow-x: visible; */
 }
 
 
@@ -12,19 +18,20 @@
     width: 100%;
     height: 430px;
     background-color: rgb(187, 166, 132);
+    /* background-image: url("../../../assets/images/banner.mp4"); */
     margin-top: 30px;
     margin-bottom: 30px;
     
 }
 
-.top-banner .headline{
+.top-banner > .headline{
     color: whitesmoke;
     font-size: 42px;
     padding-top: 145px;
     font-weight: 700;
 }
 
-.top-banner .tagline{
+.top-banner > .tagline{
     color: whitesmoke;
     font-size: 20px;
     padding: 25px;
