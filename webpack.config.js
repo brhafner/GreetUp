@@ -39,6 +39,16 @@ module.exports = {
                     }
                 }
             }
+            // {
+            //     // add loader for mp4/ vids
+            //     test: /\.(mp4|svg|gif)$/,
+            //     use: {
+            //         loader: "file-loader",
+            //         options: {
+            //             name: "[name].[hash].[ext]"
+            //         }
+            //     }
+            // }
         ]
     },
     devtool: 'source-map'

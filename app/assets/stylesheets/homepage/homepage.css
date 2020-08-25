@@ -1,32 +1,25 @@
 #banner-vid {
-  /* position: absolute; */
-  /* right: 0;
-  bottom: 0; */
-  min-width: 100%;
-  min-height: 430px;
-  /* max-height: 430px; */
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  z-index: -1;
 }
 
 
 .top-banner {
-    width: 100%;
-    height: 430px;
-    background-color: rgb(187, 166, 132);
-    margin-top: 30px;
-    margin-bottom: 30px;
-    
+    position: absolute;
 }
 
-.top-banner .headline{
+.top-banner > .headline{
     color: whitesmoke;
-    font-size: 42px;
-    padding-top: 145px;
+    font-size: 65px;
+    margin-top: 20vw;
     font-weight: 700;
 }
 
-.top-banner .tagline{
+.top-banner > .tagline{
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 35px;
     padding: 25px;
     font-weight: 500;
 }
@@ -35,10 +28,10 @@
 .banner-button{
     background: #f13a59;
     border-color: #ed1c40;
-    min-width: 250px;
+    width: 60px;
     height: 30px;
     text-align: center;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 600;
     padding: .5em;
     color: #fff;
@@ -51,7 +44,7 @@
 }
 
 .topline-group-links {
-    padding: 0px 150px 10px 150px;
+    margin: 0px 150px 10px 150px;
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid #ccc;
