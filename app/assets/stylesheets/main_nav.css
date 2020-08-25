@@ -2,16 +2,16 @@
     /* margin: 40px, 30px; */
     /* padding: 30px, 30px, 30px, 30px;  */
     width: 100%;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     /* border-bottom: 1px solid #ccc; */
 }
 
 .header-render {
     padding: 5px 10px 0px 10px;
-    margin-bottom: 20px;
+    margin: 10px 0px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .mainLogo{
@@ -30,7 +30,7 @@
 .nav-button {
     color: #757575;
     padding-right: 20px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
 }
 
