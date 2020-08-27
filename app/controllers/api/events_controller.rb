@@ -26,7 +26,8 @@ class Api::EventsController < ApplicationController
     def update
         @event = Event.find_by(id: params[:id])
         if @event.update(event_params)
-            render json: ['true'], status: 200 
+            # render json: ['true'], status: 200 
+            render :show
         else
             render json: @event.errors.full_messages, status: 422 
         end
@@ -43,7 +44,8 @@ class Api::EventsController < ApplicationController
 
     private
     def event_params
-        params.require(:event).permit(:name, :details, :day, :start_time, :duration, :digital, :address, :group_id, :photo)
+        # params.require(:events).permit(:name, :details, :day, :start_time, :duration, :digital, :address, :group_id, :photo)
+        params.permit(:name, :details, :day, :start_time, :duration, :digital, :address, :group_id, :photo)
     end
 
     def add_template_photo(event)
