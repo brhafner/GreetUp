@@ -7,9 +7,9 @@ class Event < ApplicationRecord
     foreign_key: :host_id,
     class_name: :User
 
-    # has_many :attendences
+    has_many :attendances
 
-    # has_many :members,
-    # through: :memberships,
-    # source: :user
+    has_many :attendees,
+    through: :attendances,
+    source: :user
 end
