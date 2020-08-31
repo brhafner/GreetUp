@@ -14,6 +14,15 @@ class User < ApplicationRecord
     has_many :groups_memberships,
     through: :memberships
 
+    has_many :events,
+    foreign_key: :host_id,
+    class_name: :Event
+
+    has_many :attendances
+
+    has_many :event_attendances,
+    through: :attendances
+
     after_initialize :ensure_session_token
 
     def self.find_by_credentials(email, password)

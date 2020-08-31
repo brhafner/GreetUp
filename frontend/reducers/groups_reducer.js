@@ -4,6 +4,8 @@ import {
     DELETE_GROUP 
 } from '../actions/group_actions'
 
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions'
+
 const groupsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState);
@@ -16,6 +18,8 @@ const groupsReducer = (oldState = {}, action) => {
         case DELETE_GROUP:
             delete nextState[action.groupId];
             return nextState;
+        case LOGOUT_CURRENT_USER:
+            return {};
         default:
             return oldState;
     }
