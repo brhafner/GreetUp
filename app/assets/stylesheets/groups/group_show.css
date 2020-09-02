@@ -118,3 +118,18 @@
     color: #0098ab;
     cursor: pointer;
 }
+
+.member-user-icon{
+    margin-top: 8px 10px 0 0; 
+    background:url(user-icon.png) left top;
+    width:18px; 
+    height:18px;
+    background-size: 18px 18px;
+    display: block;
+    float: left;
+}
+.members-pane-index-item{
+    font-size: 20px;
+    color: #2e3e48;
+    margin: 8px 0px 0 10px;
+}

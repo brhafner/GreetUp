@@ -11,13 +11,13 @@ const WelcomePage = (props) => {
     return (
         <div className="welcome-page-container">
             <Route exact path="/" component={WelcomeHeader} />
-           <Switch>
+            <Switch>
                 <Route exact path="/groups/" component={GroupIndexContainer} />  
                 <Route path="/groups/new" component={CreateGroupFormContainer} />
                 <Route path="/groups/:groupId/edit" component={EditGroupFormContainer} />
                 <Route path="/groups/:groupId" component={GroupShowContainer} />
                 <Link to="/groups/" className="session-submit">Search Groups Near You</Link>
-           </Switch>
+            </Switch>
             <Route exact path="/" component={WelcomeIndexItems} />
         </div>
     )
