@@ -42,7 +42,8 @@ class GroupShow extends React.Component {
                     <img src={group.photoUrl} alt="template_img" className="item-profile-picture"></img>
                     <div className="top-line-info">
                         <p className="item-title">{this.props.group.title}</p>
-                        <p>324 Members</p>
+                        <p>This group has {group.members.length} members</p>
+                        {/* <p>324 Members</p> */}
                         <p>Organized by: {organizerName} </p>
                         {group.organizerId === currentUserId ? organizerTools : ""}
                         {/* <button className="session-submit">Join Group</button>
@@ -56,7 +57,8 @@ class GroupShow extends React.Component {
                     <div className='right'>
                         <p className="show-about-title">Organizers</p>
                         <div className="show-about-details">
-                            <p>Organizer_PHOTO</p>
+                            {/* <p>Organizer_PHOTO</p> */}
+                            <span className='organizer-user-icon'></span>
                             <p>{organizerName}</p>
                         </div>
                         <button className="session-submit">Join Group</button>

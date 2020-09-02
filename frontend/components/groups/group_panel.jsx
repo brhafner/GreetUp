@@ -1,6 +1,6 @@
 import React from 'react';
 import Headers from './group_panel_header';
-import WelcomeIndexItems from '../welcome/welcome_index_items'
+// import WelcomeIndexItems from '../welcome/welcome_index_items'
 
 // try to always return a react component if possible
 // function PaneContent({ paneTitle }) {
