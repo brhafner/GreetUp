@@ -6,7 +6,7 @@ class Api::MembershipsController < ApplicationController
         debugger
         
         if @membership.save
-            render json: ['Membership Created'], status: 200
+            render json: @membership.group_id, status: 200
         else
             render :json ['Membership FAILED'], status: 422
             # render :json @membership.errors.full_messages, status: 422
@@ -20,7 +20,8 @@ class Api::MembershipsController < ApplicationController
         
         debugger
         if Membership.destroy(@membership[0].id)
-            render json: ["Membership Deleted"], status: 200
+            # render json: ["Membership Deleted"], status: 200
+            render json: params[:group_id], status: 200
         else
             render json: @membership.errors.full_messages, status: 422
         end

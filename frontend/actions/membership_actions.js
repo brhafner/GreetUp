@@ -12,15 +12,15 @@ const receiveErrors = (errors) => ({
 
 export const createMembership = (groupId) => dispatch => (
     MembershipApiUtil.createMembership(groupId)
-        // .then(
-        //     () => dispatch(requestGroup(groupId)),
-        //     errors => dispatch(receiveErrors(errors.responseJSON)))
+        .then(
+            (groupId) => dispatch(requestGroup(groupId)),
+            errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
 export const deleteMembership = (groupId) => dispatch => (
     MembershipApiUtil.deleteMembership(groupId)
-        // .then(
-        //     () => dispatch(requestGroup(groupId)),
-        //     errors => dispatch(receiveErrors(errors.responseJSON)))
+        .then(
+            (groupId) => dispatch(requestGroup(groupId)),
+            errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
