@@ -74,7 +74,7 @@ class GroupShow extends React.Component {
                         <p>This group has {group.members.length} members</p>
                         <p>Organized by: {organizerName} </p>
                         {group.organizerId === currentUserId ? organizerTools : ""}
-                        <Link to='/groups' className="session-submit">Return to Group Index Page</Link> */}
+                        {/* <Link to='/groups' className="session-submit">Return to Group Index Page</Link> */}
                     </div>
                 </div>
                 <div className="item-show-content">
