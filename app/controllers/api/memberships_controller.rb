@@ -3,9 +3,9 @@ class Api::MembershipsController < ApplicationController
     def create
         @membership = Membership.new(membership_params)
         @membership.user_id = current_user.id
-        # debugger
+        debugger
         
-        if @membership.save!
+        if @membership.save
             render json: ['Membership Created'], status: 200
         else
             render :json ['Membership FAILED'], status: 422
@@ -14,9 +14,12 @@ class Api::MembershipsController < ApplicationController
     end
 
     def destroy
+        @membership = Membership.all.where(
+            group_id: params[:group_id], 
+            user_id: current_user.id)
+        
         debugger
-        @membership = Membership.find_by(:id params[:id])
-        if @membership.destroy
+        if Membership.destroy(@membership[0].id)
             render json: ["Membership Deleted"], status: 200
         else
             render json: @membership.errors.full_messages, status: 422

@@ -1,16 +1,19 @@
-export const createMembership = (groupId) => {
+export const createMembership = (membership) => {
     return $.ajax({
-        url: `/api/groups/${groupId}/memberships`,
-        method: 'POST'
-        // data: membership,
-        // contentType: false,
+        url: `/api/groups/${membership.groupId}/memberships`,
+        method: 'POST',
+        data: membership,
+        contentType: false,
         // processData: false
     })
 }
 
-export const deleteMembership = (groupId) => {
+export const deleteMembership = (membership) => {
     return $.ajax({
-        url: `/api/groups/${groupId}/memberships`,
-        method: 'DELETE'
+        url: `/api/groups/${membership.groupId}/memberships/id`,
+        method: 'DELETE',
+        data: membership,
+        contentType: false,
+        // processData: false
     })
 }

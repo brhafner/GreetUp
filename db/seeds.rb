@@ -9,7 +9,8 @@ require 'open-uri'
 
 User.destroy_all
 Group.destroy_all
-# destory_all membership and attendances
+Membership.destroy_all
+Attendance.destroy_all
 
 # create users
 user1 = User.create(first_name: "Mitchell", last_name: "Grant", password: "password", email: "test1@test.com", phone_number: "555-555-5555", home_city_id: "1")
