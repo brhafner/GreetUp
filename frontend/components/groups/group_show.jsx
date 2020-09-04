@@ -59,10 +59,6 @@ class GroupShow extends React.Component {
             <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
         </div>
 
-        let joinLeaveButton = this.isGroupMember ?
-            (<button onClick={() => this.handleJoinGroup(groupId)} className="session-submit">Join Group</button>) :
-            (<button onClick={() => this.handleLeaveGroup(groupId)} className="session-submit">Leave Group</button>)
-
         return (
             
             <div className="item-show">

@@ -1,28 +1,5 @@
 import React from 'react';
 import Headers from './group_panel_header';
-// import WelcomeIndexItems from '../welcome/welcome_index_items'
-
-// try to always return a react component if possible
-// function PaneContent({ paneTitle }) {
-//     if (paneTitle === "About") {
-//         // return <AboutContent/>
-//     }
-
-//     if (paneTitle === "Events") {
-//         // return <EventsContent/>
-//     }
-
-//     if (paneTitle === "Members") {
-//         // return <MembersContent/>
-//         return <div>hello world</div>;
-//     }
-
-//     if (paneTitle === "Photos") {
-//         // return <PhotosContent/>
-//     }
-
-//     return null
-// }
 
 function MembersPane({ members }) {
     if (members.length === 0) {
@@ -31,7 +8,6 @@ function MembersPane({ members }) {
 
     return <ul>
         {members.map((memberObj, idx) => {
-            // console.log(memberObj.firstName)
             return <li key={idx} >
                         <span className='member-user-icon'></span>
                         <span className='members-pane-index-item'>{memberObj.firstName}</span>
