@@ -14,20 +14,12 @@ class GroupShow extends React.Component {
         this.props.requestGroup(this.props.groupId)
     }
 
-    handleJoinGroup(groupId, userId){
-        let membership = {
-            groupId,
-            userId
-        }
-        this.props.createMembership(membership)
+    handleJoinGroup(groupId){
+        this.props.createMembership(groupId)
     }
 
-    handleLeaveGroup(groupId, userId){
-        let membership = {
-            groupId,
-            userId
-        }
-        this.props.deleteMembership(membership)
+    handleLeaveGroup(groupId){
+        this.props.deleteMembership(groupId)
     }
 
     handleDelete(groupId){
@@ -79,8 +71,8 @@ class GroupShow extends React.Component {
                             <span className='organizer-user-icon'></span>
                             <p>{organizerName}</p>
                         </div>
-                        <button onClick={() => this.handleJoinGroup(groupId, currentUserId)} className="session-submit">Join Group</button>
-                        <button onClick={() => this.handleLeaveGroup(groupId, currentUserId)} className="session-submit">Leave Group</button>
+                        <button onClick={() => this.handleJoinGroup(groupId)} className="session-submit">Join Group</button>
+                        <button onClick={() => this.handleLeaveGroup(groupId)} className="session-submit">Leave Group</button>
                     </div>
                 </div>
             </div>
