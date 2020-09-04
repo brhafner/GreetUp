@@ -1,6 +1,6 @@
-class CreateJoinTableMemberships < ActiveRecord::Migration[5.2]
+class CreateMemberships < ActiveRecord::Migration[5.2]
   def change
-    create_join_table :groups, :users, table_name: :memberships do |t|
+    create_table :memberships do |t|
       t.integer :user_id, null: false
       t.integer :group_id, null: false
     end

@@ -9,6 +9,7 @@
     json.category group.category
     json.photo_url url_for(group.photo)
     json.organizer group.organizer, :first_name
+    json.members group.members, :first_name, :id
   end
 end
 

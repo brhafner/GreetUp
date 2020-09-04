@@ -75,8 +75,10 @@
 }
 
 .show-about-details p{
-    margin-bottom: 8px;
+    padding: 5px 0;
+    font-size: 18px;
 }
+
 .show-about-body{
     font-size: 16px;
     max-width: 700px;
@@ -84,6 +86,16 @@
     background-color: #ffffff;
     padding: 15px 15px 10px 15px;
     border-top: 1px solid #ccc;
+}
+
+.organizer-user-icon{
+    margin:0 10px 0 10px; 
+    background:url(user-icon.png) left top;
+    width:30px; 
+    height:30px;
+    background-size: 30px 30px;
+    display: block;
+    float: left;
 }
 
 /* Following on Group Panel component and Children */
@@ -117,4 +129,20 @@
 .group-index-name:hover{
     color: #0098ab;
     cursor: pointer;
+}
+
+.member-user-icon{
+    /* margin-top: 8px;  */
+    margin-top: 8px 10px 0 0; 
+    background:url(user-icon.png) left top;
+    width:18px; 
+    height:18px;
+    background-size: 18px 18px;
+    display: block;
+    float: left;
+}
+.members-pane-index-item{
+    font-size: 20px;
+    color: #2e3e48;
+    margin: 8px 0px 0 10px;
 }

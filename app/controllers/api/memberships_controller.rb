@@ -2,17 +2,24 @@ class Api::MembershipsController < ApplicationController
 
     def create
         @membership = Membership.new(membership_params)
+        @membership.user_id = current_user.id
+        
         if @membership.save
-            render json: @membership
+            render json: @membership.group_id, status: 200
         else
-            render :json @membership.errors.full_messages, status: 422
+            render :json ['Membership FAILED'], status: 422
+            # render :json @membership.errors.full_messages, status: 422
         end
     end
 
     def destroy
-        @membership = Membership.find_by(:id params[:id])
-        if @membership.destroy
-            render json: ["Membership Deleted"], status: 200
+        @membership = Membership.all.where(
+            group_id: params[:group_id], 
+            user_id: current_user.id)
+        
+        if Membership.destroy(@membership[0].id)
+            # render json: ["Membership Deleted"], status: 200
+            render json: params[:group_id], status: 200
         else
             render json: @membership.errors.full_messages, status: 422
         end
@@ -20,6 +27,6 @@ class Api::MembershipsController < ApplicationController
 
     private
     def membership_params
-        params.require(:memberships).permit(:user_id, :group_id)
+        params.permit(:group_id, :user_id)
     end
 end
