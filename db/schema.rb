@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_182456) do
+ActiveRecord::Schema.define(version: 2020_09_04_185039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 2020_08_27_182456) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "attendances", id: false, force: :cascade do |t|
-    t.integer "event_id", null: false
+  create_table "attendances", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "event_id", null: false
     t.index ["event_id", "user_id"], name: "index_attendances_on_event_id_and_user_id", unique: true
     t.index ["user_id"], name: "index_attendances_on_user_id"
   end
@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 2020_08_27_182456) do
     t.index ["organizer_id"], name: "index_groups_on_organizer_id"
   end
 
-  create_table "memberships", id: false, force: :cascade do |t|
-    t.integer "group_id", null: false
+  create_table "memberships", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "group_id", null: false
     t.index ["group_id", "user_id"], name: "index_memberships_on_group_id_and_user_id", unique: true
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end

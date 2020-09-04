@@ -6,10 +6,21 @@ class GroupShow extends React.Component {
     constructor(props){
         super(props)
         this.handleDelete = this.handleDelete.bind(this)
+        this.handleJoinGroup = this.handleJoinGroup.bind(this)
+        this.handleLeaveGroup = this.handleLeaveGroup.bind(this)
     }
 
     componentDidMount() {
         this.props.requestGroup(this.props.groupId)
+    }
+
+    handleJoinGroup(groupId){
+        debugger
+        this.props.createMembership(groupId)
+    }
+
+    handleLeaveGroup(groupId){
+        this.props.deleteMembership(groupId)
     }
 
     handleDelete(groupId){
@@ -22,7 +33,7 @@ class GroupShow extends React.Component {
 
     render() {
         
-        let { group, currentUserId } = this.props;
+        let { group, currentUserId, groupId } = this.props;
         let organizerName = this.props.group.organizer.firstName
 
         if (!group) {
@@ -61,7 +72,7 @@ class GroupShow extends React.Component {
                             <span className='organizer-user-icon'></span>
                             <p>{organizerName}</p>
                         </div>
-                        <button className="session-submit">Join Group</button>
+                        <button onClick={() => this.handleJoinGroup(group.id)} className="session-submit">Join Group</button>
                     </div>
                 </div>
             </div>
