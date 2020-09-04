@@ -3,7 +3,6 @@ class Api::MembershipsController < ApplicationController
     def create
         @membership = Membership.new(membership_params)
         @membership.user_id = current_user.id
-        debugger
         
         if @membership.save
             render json: @membership.group_id, status: 200
@@ -18,7 +17,6 @@ class Api::MembershipsController < ApplicationController
             group_id: params[:group_id], 
             user_id: current_user.id)
         
-        debugger
         if Membership.destroy(@membership[0].id)
             # render json: ["Membership Deleted"], status: 200
             render json: params[:group_id], status: 200

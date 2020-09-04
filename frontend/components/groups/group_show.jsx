@@ -2,6 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import GroupPanel from './group_panel';
 
+function IsGroupMember({ group, currentUserId, joinGroup, leaveGroup }){
+    let isMember = <button onClick={
+        () => joinGroup(group.id)}
+        className="session-submit">Join Group
+                </button>;
+    group.members.forEach(memberObj => {
+        if (memberObj.id === currentUserId) {
+            isMember = <button 
+                            onClick={() => leaveGroup(group.id)} 
+                            className="session-submit">Leave Group
+                        </button>;
+        }
+    })
+    return isMember
+}
+
 class GroupShow extends React.Component {
     constructor(props){
         super(props)
@@ -29,7 +45,6 @@ class GroupShow extends React.Component {
             })
     };
 
-
     render() {
         
         let { group, currentUserId, groupId } = this.props;
@@ -44,6 +59,10 @@ class GroupShow extends React.Component {
             <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
         </div>
 
+        let joinLeaveButton = this.isGroupMember ?
+            (<button onClick={() => this.handleJoinGroup(groupId)} className="session-submit">Join Group</button>) :
+            (<button onClick={() => this.handleLeaveGroup(groupId)} className="session-submit">Leave Group</button>)
+
         return (
             
             <div className="item-show">
@@ -53,10 +72,8 @@ class GroupShow extends React.Component {
                     <div className="top-line-info">
                         <p className="item-title">{this.props.group.title}</p>
                         <p>This group has {group.members.length} members</p>
-                        {/* <p>324 Members</p> */}
                         <p>Organized by: {organizerName} </p>
                         {group.organizerId === currentUserId ? organizerTools : ""}
-                        {/* <button className="session-submit">Join Group</button>
                         <Link to='/groups' className="session-submit">Return to Group Index Page</Link> */}
                     </div>
                 </div>
@@ -67,12 +84,15 @@ class GroupShow extends React.Component {
                     <div className='right'>
                         <p className="show-about-title">Organizers</p>
                         <div className="show-about-details">
-                            {/* <p>Organizer_PHOTO</p> */}
                             <span className='organizer-user-icon'></span>
                             <p>{organizerName}</p>
                         </div>
-                        <button onClick={() => this.handleJoinGroup(groupId)} className="session-submit">Join Group</button>
-                        <button onClick={() => this.handleLeaveGroup(groupId)} className="session-submit">Leave Group</button>
+                        <IsGroupMember 
+                            group={group} 
+                            currentUserId={currentUserId}
+                            leaveGroup={(groupId) => this.handleLeaveGroup(groupId)}
+                            joinGroup={(groupId) => this.handleJoinGroup(groupId)}
+                            />
                     </div>
                 </div>
             </div>
