@@ -9,10 +9,15 @@ function IsGroupMember({ group, currentUserId, joinGroup, leaveGroup }){
                 </button>;
     group.members.forEach(memberObj => {
         if (memberObj.id === currentUserId) {
-            isMember = <button 
-                            onClick={() => leaveGroup(group.id)} 
-                            className="session-submit">Leave Group
-                        </button>;
+            isMember = <div>
+                            <button 
+                                onClick={() => leaveGroup(group.id)} 
+                                className="session-submit">Leave Group
+                            </button>
+                            <Link to={`/groups/${group.id}/events/new`} 
+                                className="create-event-button">Create A New Event
+                            </Link>
+                        </div>;
         }
     })
     return isMember
@@ -70,8 +75,6 @@ class GroupShow extends React.Component {
                         <p>This group has {group.members.length} members</p>
                         <p>Organized by: {organizerName} </p>
                         {group.organizerId === currentUserId ? organizerTools : ""}
-                        <Link to={`/groups/${groupId}/events/new`} className="session-submit">Create A New Event</Link>
-                        {/* <Link to='/groups' className="session-submit">Return to Group Index Page</Link> */}
                     </div>
                 </div>
                 <div className="item-show-content">

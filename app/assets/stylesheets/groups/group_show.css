@@ -29,6 +29,25 @@
     font-weight: 700;
 }
 
+.create-event-button{
+    display: inline-block;
+    position: relative;
+    background: #ed1c40;
+    border-color: #ed1c40;
+    width: 250px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: .5em;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.create-event-button:hover {
+  background: #e21b3c;
+  border-color: #e21b3c;
+}
+
 .item-show-manage-container{
     margin-top: 10px;
 }
