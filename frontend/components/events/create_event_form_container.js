@@ -5,7 +5,7 @@ import EventForm from './event_form';
 
 const mSTP = (state, ownProps) => ({
     event: {
-        // id: event.id?
+        id: "",
         name: "",
         details: "",
         day: "",
@@ -13,7 +13,6 @@ const mSTP = (state, ownProps) => ({
         duration: "",
         digital: true,
         address: "",
-        // groupId: state.entities.groups[ownProps.match.path.groupId],
         groupId: parseInt(ownProps.match.params.groupId),
         hostId: state.session.currentUserId
     },

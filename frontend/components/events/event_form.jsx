@@ -98,26 +98,36 @@ class EventForm extends React.Component {
                             onChange={this.handleChange("day")}
                             value={this.state.day} />
                     </label>
-                    <label>Time:
+                    <br/>
+                    <label>Start Time:
+                        <input type="time"
+                            onChange={this.handleChange("startTime")}
+                            value={this.state.startTime} />
+                    </label>
+                    {/* <label>Duration:
                         <input type="time"
                             onChange={this.handleChange("duration")}
                             value={this.state.duration} />
-                    </label>
+                    </label> */}
                     <div>
                         <p>Is this Event remote?</p>
                         <label>Yes:
                             <input type="radio"
-                                onChange={this.handleChange("duration")}
-                                value={this.state.duration} />
+                                name="digital"
+                                onChange={this.handleChange("digital")}
+                                value={true} />
                         </label>
                         <label>No:
                             <input type="radio"
-                                onChange={this.handleChange("duration")}
-                                value={!this.state.duration} />
+                                name="digital"
+                                onChange={this.handleChange("digital")}
+                                value={false} />
                         </label>
                     </div>
                     <label>Address:
                         <input type="text"
+                            placeholder="Enter event address if in person"
+                            className="session-form-input"
                             onChange={this.handleChange("address")}
                             value={this.state.address} />
                     </label>

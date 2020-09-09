@@ -110,9 +110,7 @@ class GroupPanel extends React.Component {
                             {this.state.selectedTabTitle === "Events" &&
                                 <EventsPane events={events} className='members-pane-index' />}
                             {this.state.selectedTabTitle === "Members" &&
-                                <MembersPane members={members} className='members-pane-index'/>
-                                //<div>members</div>}
-        }
+                                <MembersPane members={members} className='members-pane-index'/>}
                             {this.state.selectedTabTitle === "Photos" &&
                                 <div>{<img src={photoUrl} />}</div>}
                         </article>
