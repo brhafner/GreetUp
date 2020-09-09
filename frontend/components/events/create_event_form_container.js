@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { createEvent } from '../../actions/event_actions';
 import EventForm from './event_form';
 
 const mSTP = (state, ownProps) => ({
     event: {
+        // id: event.id?
         name: "",
         details: "",
         day: "",
@@ -12,7 +13,8 @@ const mSTP = (state, ownProps) => ({
         duration: "",
         digital: true,
         address: "",
-        groupId: state.entities.groups[ownProps.match.params.groupId],
+        // groupId: state.entities.groups[ownProps.match.path.groupId],
+        groupId: parseInt(ownProps.match.params.groupId),
         hostId: state.session.currentUserId
     },
     formType: "Create",

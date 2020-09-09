@@ -5,12 +5,13 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :groups do
-      resources :events, only: [:index]
+      # resources :events, only: [:index, :create]
+      resources :events
       resources :memberships, only: [:create, :destroy]
     end
-    resources :events do
-      resources :attendances, only: [:create, :destroy]
-    end
+    # resources :events do
+    #   resources :attendances, only: [:create, :destroy]
+    # end
     
   end
 

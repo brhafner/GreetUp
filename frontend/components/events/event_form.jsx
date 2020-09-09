@@ -26,6 +26,7 @@ class EventForm extends React.Component {
         if (this.state.photoFile) {
             formData.append('event[photo]', this.state.photoFile);
         }
+        // debugger
         this.props.action(formData)
             .then(() => this.props.history.push(`/groups/`))
         // The below does not work on create bc it does not have an id yet
@@ -63,6 +64,7 @@ class EventForm extends React.Component {
     }
 
     render() {
+        // debugger
 
         // if (this.state.toIndex === true) {
         //     return <Redirect to='/' />
@@ -74,7 +76,7 @@ class EventForm extends React.Component {
                 <p className='form-name' >{isCreate ? "Create New Event" : "Update Event Details"}</p>
                 <form>
                     {theErrors}
-                    <label className='group-form-label'>Title:
+                    <label className='group-form-label'>Event Name:
                     <input
                             type="text"
                             className="session-form-input"
@@ -82,7 +84,7 @@ class EventForm extends React.Component {
                             onChange={this.handleChange("name")}
                             value={this.state.name} />
                     </label>
-                    <label className='group-form-label'>About:
+                    <label className='group-form-label'>Event Details:
                         <textarea
                             cols="30" rows="10"
                             className="session-form-input"
@@ -93,8 +95,8 @@ class EventForm extends React.Component {
                     </label>
                     <label>Date:
                         <input type="date"
-                            onChange={this.handleChange("date")}
-                            value={this.state.date} />
+                            onChange={this.handleChange("day")}
+                            value={this.state.day} />
                     </label>
                     <label>Time:
                         <input type="time"
@@ -128,7 +130,7 @@ class EventForm extends React.Component {
                     </label>
                     <button
                         className="session-submit"
-                        onClick={this.handleSubmit}>{isCreate ? "Create Group" : "Update Group"}</button>
+                        onClick={this.handleSubmit}>{isCreate ? "Create Event" : "Update Event"}</button>
                 </form>
             </div>
         )

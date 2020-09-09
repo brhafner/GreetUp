@@ -13,4 +13,6 @@ class Group < ApplicationRecord
     through: :memberships,
     source: :user
 
+    has_many :events
+
 end
