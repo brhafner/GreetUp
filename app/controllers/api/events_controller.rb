@@ -15,7 +15,7 @@ class Api::EventsController < ApplicationController
         @event = Event.new(event_params)
         @event.host_id = current_user.id
         add_template_photo(@event) unless @event.photo.attached? 
-        debugger
+
         if @event.save
             render :show
         else

@@ -16,6 +16,30 @@ function MembersPane({ members }) {
     </ul>;
 }
 
+function EventsPane({ events }) {
+    if (events.length === 0) {
+        return <p>This Group has no upcoming events</p>;
+    }
+
+    return <ul>
+        {events.map((eventObj, idx) => {
+            return <li key={idx} >
+                <div className="welcome-item-show-container">
+                    <span>{eventObj.day}</span>
+                    <div className="welcome-item">
+                        <span className="welcome-item-time">{eventObj.startTime}</span>
+                        <span>
+                            <p>{eventObj.name}</p>
+                            <p>{eventObj.details}</p>
+                            {/* <p>1 going</p> */}
+                        </span>
+                    </div>
+                </div>
+            </li>
+        })}
+    </ul>;
+}
+
 class GroupPanel extends React.Component {
     constructor(props) {
         super(props)
@@ -65,7 +89,7 @@ class GroupPanel extends React.Component {
         : (pane.content === members) ? membersIndex : pane.content;
 
         */
-        let { members, photoUrl, about } = this.props.group;
+        let { members, photoUrl, about, events } = this.props.group;
         return (
             <div>
                 <div>
@@ -84,7 +108,7 @@ class GroupPanel extends React.Component {
                             {this.state.selectedTabTitle === "About" &&
                                 <div>{about}</div>}
                             {this.state.selectedTabTitle === "Events" &&
-                                <div>Future Home of Events</div>}
+                                <EventsPane events={events} className='members-pane-index' />}
                             {this.state.selectedTabTitle === "Members" &&
                                 <MembersPane members={members} className='members-pane-index'/>
                                 //<div>members</div>}
