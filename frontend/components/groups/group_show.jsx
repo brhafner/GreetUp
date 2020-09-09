@@ -75,6 +75,19 @@ class GroupShow extends React.Component {
                         <p>This group has {group.members.length} members</p>
                         <p>Organized by: {organizerName} </p>
                         {group.organizerId === currentUserId ? organizerTools : ""}
+                        {/* <div className='right'>
+                            <p className="show-about-title">Organizers</p>
+                            <div className="show-about-details">
+                                <span className='organizer-user-icon'></span>
+                                <p>{organizerName}</p>
+                            </div>
+                            <IsGroupMember
+                                group={group}
+                                currentUserId={currentUserId}
+                                leaveGroup={(groupId) => this.handleLeaveGroup(groupId)}
+                                joinGroup={(groupId) => this.handleJoinGroup(groupId)}
+                            />
+                        </div> */}
                     </div>
                 </div>
                 <div className="item-show-content">

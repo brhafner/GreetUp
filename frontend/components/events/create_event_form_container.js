@@ -3,8 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { createEvent } from '../../actions/event_actions';
 import EventForm from './event_form';
 
-const mSTP = (state) => ({
-    // group: state.entities.groups[ownProps.match.params.groupId],
+const mSTP = (state, ownProps) => ({
     event: {
         name: "",
         details: "",

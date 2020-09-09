@@ -17,8 +17,8 @@ const WelcomePage = (props) => {
                 <Route exact path="/groups/" component={GroupIndexContainer} />  
                 <Route path="/groups/new" component={CreateGroupFormContainer} />
                 <Route path="/groups/:groupId/edit" component={EditGroupFormContainer} />
-                <Route path="/groups/groupId/events/new" component={CreateEventContainer} />
-                <Route path="/groups/groupId/events/edit" component={EditEventContainer} />
+                <Route path="/groups/:groupId/events/new" component={CreateEventContainer} />
+                <Route path="/groups/:groupId/events/edit" component={EditEventContainer} />
                 <Route exact path="/groups/:groupId" component={GroupShowContainer} />
                 <Link to="/groups/" className="session-submit">Search Groups Near You</Link>
             </Switch>
