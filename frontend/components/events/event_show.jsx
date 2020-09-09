@@ -1,80 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GroupPanel from './group_panel';
-
-function IsGroupMember({ group, currentUserId, joinGroup, leaveGroup }){
-    let isMember = <button onClick={
-        () => joinGroup(group.id)}
-        className="session-submit">Join Group
-                </button>;
-    group.members.forEach(memberObj => {
-        if (memberObj.id === currentUserId) {
-            isMember = <div>
-                            <button 
-                                onClick={() => leaveGroup(group.id)} 
-                                className="session-submit">Leave Group
-                            </button>
-                            <Link to={`/groups/${group.id}/events/new`} 
-                                className="create-event-button">Create A New Event
-                            </Link>
-                        </div>;
-        }
-    })
-    return isMember
-}
 
 class GroupShow extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.handleDelete = this.handleDelete.bind(this)
-        this.handleJoinGroup = this.handleJoinGroup.bind(this)
-        this.handleLeaveGroup = this.handleLeaveGroup.bind(this)
+        // this.handleJoinEvent = this.handleJoinEvent.bind(this)
+        // this.handleLeaveEvent = this.handleLeaveEvent.bind(this)
     }
 
     componentDidMount() {
-        this.props.requestGroup(this.props.groupId)
+        this.props.requestEvent(this.props.groupId, this.props.eventId)
     }
 
-    handleJoinGroup(groupId){
-        this.props.createMembership(groupId)
-    }
+    // handleJoinGroup(groupId) {
+    //     this.props.createMembership(groupId)
+    // }
 
-    handleLeaveGroup(groupId){
-        this.props.deleteMembership(groupId)
-    }
+    // handleLeaveGroup(groupId) {
+    //     this.props.deleteMembership(groupId)
+    // }
 
-    handleDelete(groupId){
-        this.props.deleteGroup(groupId)
+    handleDelete(groupId, eventId) {
+        this.props.deleteEvent(groupId, eventId)
             .then(() => {
                 this.props.history.push('/groups')
             })
     };
 
     render() {
-    
-        let { group, currentUserId } = this.props;
-        
-        if (!group) {
+
+        let { event, currentUserId, eventId, groupId } = this.props;
+
+        if (!event) {
             return null;
         }
-        let organizerName = group.organizer.firstName
+        // let hostName = event.host.firstName  <= need to add association and fix JBUILDER
 
         let organizerTools = <div className="item-show-manage-container">
-            <Link className="item-show-manage" to={`/groups/${group.id}/edit`}>Edit Group Info</Link><br/>
-            <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
+            <Link className="item-show-manage" to={`/groups/${groupId}/events/${eventId}/edit`}>Edit Group Info</Link><br />
+            <button className="item-show-manage" onClick={() => this.handleDelete(groupId, eventId)}>Delete This Group</button>
         </div>
 
         return (
-            
+
             <div className="item-show">
                 <Link to='/groups' className="item-show-manage">Return to Group Index Page</Link>
                 <div className="item-show-head">
-                    <img src={group.photoUrl} alt="template_img" className="item-profile-picture"></img>
+                    <img src={event.photoUrl} alt="template_img" className="item-profile-picture"></img>
                     <div className="top-line-info">
-                        <p className="item-title">{this.props.group.title}</p>
-                        <p>This group has {group.members.length} members</p>
-                        <p>Organized by: {organizerName} </p>
-                        {group.organizerId === currentUserId ? organizerTools : ""}
+                        <p className="item-title">{event.name}</p>
+                        {/* <p>This group has {event.attendees.length} members</p> */}
+                        {/* <p>Organized by: {organizerName} </p> */}
+                        {/* {group.organizerId === currentUserId ? organizerTools : ""} */}
                         {/* <div className='right'>
                             <p className="show-about-title">Organizers</p>
                             <div className="show-about-details">
@@ -90,7 +68,7 @@ class GroupShow extends React.Component {
                         </div> */}
                     </div>
                 </div>
-                <div className="item-show-content">
+                {/* <div className="item-show-content">
                     <div className="left">
                         <GroupPanel group={group} />
                     </div>
@@ -100,14 +78,14 @@ class GroupShow extends React.Component {
                             <span className='organizer-user-icon'></span>
                             <p>{organizerName}</p>
                         </div>
-                        <IsGroupMember 
-                            group={group} 
+                        <IsGroupMember
+                            group={group}
                             currentUserId={currentUserId}
                             leaveGroup={(groupId) => this.handleLeaveGroup(groupId)}
                             joinGroup={(groupId) => this.handleJoinGroup(groupId)}
-                            />
+                        />
                     </div>
-                </div>
+                </div> */}
             </div>
         )
     }

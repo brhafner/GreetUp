@@ -33,8 +33,8 @@ export const requestAllEvents = () => dispatch => (
         )
 );
 
-export const requestEvent = (eventId) => dispatch => (
-    EventApiUtil.fetchEvent(eventId)
+export const requestEvent = (groupId, eventId) => dispatch => (
+    EventApiUtil.fetchEvent(groupId, eventId)
         .then(
             event => dispatch(receiveEvent(event)),
             errors => dispatch(receiveErrors(errors.responseJSON))
