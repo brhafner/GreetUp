@@ -15,7 +15,7 @@ class Api::EventsController < ApplicationController
         @event = Event.new(event_params)
         @event.host_id = current_user.id
         add_template_photo(@event) unless @event.photo.attached? 
-
+        # debugger
         if @event.save
             render :show
         else
@@ -24,10 +24,10 @@ class Api::EventsController < ApplicationController
     end
 
     def update
-        @event = Event.find_by(id: params[:event_id])
+        @event = Event.find_by(id: params[:event][:id])
+        @event.host_id = current_user.id
         debugger
         if @event.update(event_params)
-            # render json: ['true'], status: 200 
             render :show
         else
             render json: @event.errors.full_messages, status: 422 
@@ -45,8 +45,7 @@ class Api::EventsController < ApplicationController
 
     private
     def event_params
-        # params.require(:events).permit(:name, :details, :day, :start_time, :duration, :digital, :address, :group_id, :photo)
-        params.require(:event).permit(:name, :details, :day, :start_time, :duration, :digital, :address, :group_id, :host_id, :photo)
+        params.require(:event).permit(:id, :name, :details, :day, :start_time, :duration, :digital, :address, :group_id, :photo)
     end
 
     def add_template_photo(event)

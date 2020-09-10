@@ -8,11 +8,11 @@ import { withRouter } from 'react-router-dom';
 class EditEventForm extends React.Component {
 
     componentDidMount() {
-        this.props.requestEvent(this.props.event.id)
+        this.props.requestEvent(this.props.groupId, this.props.eventId)
     }
 
     render() {
-        const { action, formType, event, errors, history } = this.props;
+        const { action, formType, event, eventId, groupId, errors, history } = this.props;
 
         if (!event) {
             return null;
@@ -20,6 +20,8 @@ class EditEventForm extends React.Component {
         return (
             <EventForm
                 event={event}
+                eventId={eventId}
+                groupId={groupId}
                 formType={formType}
                 errors={errors}
                 action={action}
@@ -31,14 +33,16 @@ class EditEventForm extends React.Component {
 
 
 const mSTP = (state, ownProps) => ({
-    group: state.entities.groups.events[ownProps.match.params.eventId],
+    event: state.entities.events[ownProps.match.params.eventId],
+    eventId: parseInt(ownProps.match.params.eventId),
+    groupId: parseInt(ownProps.match.params.groupId),
     formType: 'Update',
     errors: state.errors.event
 })
 
 const mDTP = (dispatch) => ({
     action: (event) => dispatch(updateEvent(event)),
-    requestEvent: (eventId) => dispatch(requestEvent(eventId))
+    requestEvent: (groupId, eventId) => dispatch(requestEvent(groupId, eventId)),
 })
 
 export default withRouter(connect(mSTP, mDTP)(EditEventForm));
