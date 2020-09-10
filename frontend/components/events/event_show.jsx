@@ -35,24 +35,25 @@ class GroupShow extends React.Component {
         if (!event) {
             return null;
         }
-        // let hostName = event.host.firstName  <= need to add association and fix JBUILDER
+        let hostName = event.host.firstName  
 
-        let organizerTools = <div className="item-show-manage-container">
+        let hostTools = event.host.id === currentUserId ? 
+        (<div className="item-show-manage-container">
             <Link className="item-show-manage" to={`/groups/${groupId}/events/${eventId}/edit`}>Edit Group Info</Link><br />
             <button className="item-show-manage" onClick={() => this.handleDelete(groupId, eventId)}>Delete This Group</button>
-        </div>
+        </div>) : null;
 
         return (
 
             <div className="item-show">
-                <Link to='/groups' className="item-show-manage">Return to Group Index Page</Link>
+                <Link to={`/groups/${groupId}`} className="item-show-manage">Return to Group Page</Link>
                 <div className="item-show-head">
                     <img src={event.photoUrl} alt="template_img" className="item-profile-picture"></img>
                     <div className="top-line-info">
                         <p className="item-title">{event.name}</p>
-                        {/* <p>This group has {event.attendees.length} members</p> */}
-                        {/* <p>Organized by: {organizerName} </p> */}
-                        {/* {group.organizerId === currentUserId ? organizerTools : ""} */}
+                        <p>This event has {event.attendees.length} people attending</p>
+                        <p>Organized by: {hostName} </p>
+                        {hostTools}
                         {/* <div className='right'>
                             <p className="show-about-title">Organizers</p>
                             <div className="show-about-details">

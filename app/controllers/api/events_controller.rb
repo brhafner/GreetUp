@@ -24,7 +24,8 @@ class Api::EventsController < ApplicationController
     end
 
     def update
-        @event = Event.find_by(id: params[:id])
+        @event = Event.find_by(id: params[:event_id])
+        debugger
         if @event.update(event_params)
             # render json: ['true'], status: 200 
             render :show

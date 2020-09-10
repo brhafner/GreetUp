@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch) => ({
     requestEvent: (groupId, eventId) => dispatch(requestEvent(groupId, eventId)),
-    deleteEvent: (eventId) => dispatch(deleteEvent(eventId)),
+    deleteEvent: (groupId, eventId) => dispatch(deleteEvent(groupId, eventId)),
     // createMembership: (groupId) => dispatch(createMembership(groupId)),
     // deleteMembership: (groupId) => dispatch(deleteMembership(groupId))
 })
