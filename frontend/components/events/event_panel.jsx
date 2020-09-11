@@ -5,7 +5,7 @@ function AttendeesPane({ attendees }) {
     if (attendees.length === 0) {
         return <p>This Event has no one yet attending</p>;
     }
-    debugger
+    
     return <ul>
         {attendees.map((attendeeObj, idx) => {
             return <li key={idx} >
@@ -56,7 +56,7 @@ class EventPanel extends React.Component {
                         <article className='show-about-body'>
                             {this.state.selectedTabTitle === "Details" &&
                                 <div>{details}</div>}
-                            {this.state.selectedTabTitle === "Members" &&
+                            {this.state.selectedTabTitle === "Attendees" &&
                                 <AttendeesPane attendees={attendees} className='members-pane-index' />}
                             {this.state.selectedTabTitle === "Photos" &&
                                 <div>{<img src={photoUrl} />}</div>}

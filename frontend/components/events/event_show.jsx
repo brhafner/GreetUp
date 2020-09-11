@@ -105,8 +105,8 @@ class EventShow extends React.Component {
                         <EventPanel event={event} />
                     </div>
                     <div className='right'>
-                        <div>
-                            
+                        <div className='google-maps-container'>
+                            <p>Future home of Google Maps API</p>
                         </div>
                     </div>
                 </div>
