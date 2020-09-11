@@ -6,14 +6,20 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :groups do
       # resources :events, only: [:index, :create]
-      resources :events
+      resources :events 
+
+      # do
+      #   resources :attendances, only: [:create, :destroy]
+      # end
+
       resources :memberships, only: [:create, :destroy]
     end
-    # resources :events do
-    #   resources :attendances, only: [:create, :destroy]
-    # end
+    resources :events do
+      resources :attendances, only: [:create, :destroy]
+    end
     
   end
 
   root to: 'static_pages#root'
 end
+ 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { requestEvent, deleteEvent } from '../../actions/event_actions';
-// import { createMembership, deleteMembership } from '../../actions'
+import { createAttendance, deleteAttendance } from '../../actions/attendance_actions'
 
 
 const mSTP = (state, ownProps) => ({
@@ -14,8 +14,8 @@ const mSTP = (state, ownProps) => ({
 const mDTP = (dispatch) => ({
     requestEvent: (groupId, eventId) => dispatch(requestEvent(groupId, eventId)),
     deleteEvent: (groupId, eventId) => dispatch(deleteEvent(groupId, eventId)),
-    // createMembership: (groupId) => dispatch(createMembership(groupId)),
-    // deleteMembership: (groupId) => dispatch(deleteMembership(groupId))
+    createAttendance: (eventId) => dispatch(createAttendance(eventId)),
+    deleteAttendance: (eventId) => dispatch(deleteAttendance(eventId))
 })
 
 export default connect(mSTP, mDTP)(EventShow);

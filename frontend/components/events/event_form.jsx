@@ -11,7 +11,6 @@ class EventForm extends React.Component {
         e.preventDefault();
         const formData = new FormData();
         if (this.props.formType === 'Update') {
-            // debugger
             formData.append('event[id]', this.state.id);
         }
         formData.append('event[name]', this.state.name);

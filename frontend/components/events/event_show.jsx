@@ -20,8 +20,6 @@ function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
     return isAttendee
 }
 
-
-
 class GroupShow extends React.Component {
     constructor(props) {
         super(props)
@@ -35,17 +33,17 @@ class GroupShow extends React.Component {
     }
 
     handleJoinEvent(eventId) {
-        this.props.createMembership(eventId)
+        this.props.createAttendance(eventId)
     }
 
     handleLeaveEvent(eventId) {
-        this.props.deleteMembership(eventId)
+        this.props.deleteAttendance(eventId)
     }
 
     handleDelete(groupId, eventId) {
         this.props.deleteEvent(groupId, eventId)
             .then(() => {
-                this.props.history.push(`/groups/${groupId}`)
+                this.props.history.push(`/groups/${groupId}/`)
             })
     };
 
@@ -67,7 +65,7 @@ class GroupShow extends React.Component {
             <br />
             <button className="item-show-manage" 
                 onClick={() => this.handleDelete(groupId, eventId)}>
-                    Delete This Group
+                    Delete This Event
             </button>
         </div>) : null;
 
@@ -88,6 +86,7 @@ class GroupShow extends React.Component {
                         <IsAttendee
                             event={event}
                             currentUserId={currentUserId}
+                            groupId={groupId}
                             leaveEvent={(eventId) => this.handleLeaveEvent(eventId)}
                             joinEvent={(eventId) => this.handleJoinEvent(eventId)}
                         />
