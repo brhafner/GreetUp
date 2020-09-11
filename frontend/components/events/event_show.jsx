@@ -1,30 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
+    let isAttendee = <button onClick={
+                        () => joinEvent(event.id)}
+                        className="session-submit">Attend Event
+                    </button>;
+    event.attendees.forEach(attendeeObj => {
+        if (attendeeObj.id === currentUserId) {
+            isAttendee = 
+                <div>
+                    <button
+                        onClick={() => leaveEvent(event.id)}
+                        className="session-submit">Leave Event
+                    </button>
+                </div>;
+        }
+    })
+    return isAttendee
+}
+
+
+
 class GroupShow extends React.Component {
     constructor(props) {
         super(props)
         this.handleDelete = this.handleDelete.bind(this)
-        // this.handleJoinEvent = this.handleJoinEvent.bind(this)
-        // this.handleLeaveEvent = this.handleLeaveEvent.bind(this)
+        this.handleJoinEvent = this.handleJoinEvent.bind(this)
+        this.handleLeaveEvent = this.handleLeaveEvent.bind(this)
     }
 
     componentDidMount() {
         this.props.requestEvent(this.props.groupId, this.props.eventId)
     }
 
-    // handleJoinGroup(groupId) {
-    //     this.props.createMembership(groupId)
-    // }
+    handleJoinEvent(eventId) {
+        this.props.createMembership(eventId)
+    }
 
-    // handleLeaveGroup(groupId) {
-    //     this.props.deleteMembership(groupId)
-    // }
+    handleLeaveEvent(eventId) {
+        this.props.deleteMembership(eventId)
+    }
 
     handleDelete(groupId, eventId) {
         this.props.deleteEvent(groupId, eventId)
             .then(() => {
-                this.props.history.push('/groups')
+                this.props.history.push(`/groups/${groupId}`)
             })
     };
 
@@ -39,34 +60,37 @@ class GroupShow extends React.Component {
 
         let hostTools = event.host.id === currentUserId ? 
         (<div className="item-show-manage-container">
-            <Link className="item-show-manage" to={`/groups/${groupId}/events/${eventId}/edit`}>Edit Group Info</Link><br />
-            <button className="item-show-manage" onClick={() => this.handleDelete(groupId, eventId)}>Delete This Group</button>
+            <Link className="item-show-manage" 
+                to={`/groups/${groupId}/events/${eventId}/edit`}>
+                    Edit Group Info
+            </Link>
+            <br />
+            <button className="item-show-manage" 
+                onClick={() => this.handleDelete(groupId, eventId)}>
+                    Delete This Group
+            </button>
         </div>) : null;
 
         return (
 
             <div className="item-show">
-                <Link to={`/groups/${groupId}`} className="item-show-manage">Return to Group Page</Link>
+                <Link to={`/groups/${groupId}`} 
+                    className="item-show-manage">Return to Group Page
+                </Link>
                 <div className="item-show-head">
-                    <img src={event.photoUrl} alt="template_img" className="item-profile-picture"></img>
+                    <img src={event.photoUrl} alt="template_img" 
+                    className="item-profile-picture"></img>
                     <div className="top-line-info">
                         <p className="item-title">{event.name}</p>
                         <p>This event has {event.attendees.length} people attending</p>
                         <p>Organized by: {hostName} </p>
                         {hostTools}
-                        {/* <div className='right'>
-                            <p className="show-about-title">Organizers</p>
-                            <div className="show-about-details">
-                                <span className='organizer-user-icon'></span>
-                                <p>{organizerName}</p>
-                            </div>
-                            <IsGroupMember
-                                group={group}
-                                currentUserId={currentUserId}
-                                leaveGroup={(groupId) => this.handleLeaveGroup(groupId)}
-                                joinGroup={(groupId) => this.handleJoinGroup(groupId)}
-                            />
-                        </div> */}
+                        <IsAttendee
+                            event={event}
+                            currentUserId={currentUserId}
+                            leaveEvent={(eventId) => this.handleLeaveEvent(eventId)}
+                            joinEvent={(eventId) => this.handleJoinEvent(eventId)}
+                        />
                     </div>
                 </div>
                 {/* <div className="item-show-content">
@@ -79,8 +103,8 @@ class GroupShow extends React.Component {
                             <span className='organizer-user-icon'></span>
                             <p>{organizerName}</p>
                         </div>
-                        <IsGroupMember
-                            group={group}
+                        <IsAttendee
+                            event={event}
                             currentUserId={currentUserId}
                             leaveGroup={(groupId) => this.handleLeaveGroup(groupId)}
                             joinGroup={(groupId) => this.handleJoinGroup(groupId)}
