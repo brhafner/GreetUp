@@ -102,12 +102,6 @@ class GroupShow extends React.Component {
                             <span className='organizer-user-icon'></span>
                             <p>{organizerName}</p>
                         </div>
-                        <IsAttendee
-                            event={event}
-                            currentUserId={currentUserId}
-                            leaveGroup={(groupId) => this.handleLeaveGroup(groupId)}
-                            joinGroup={(groupId) => this.handleJoinGroup(groupId)}
-                        />
                     </div>
                 </div> */}
             </div>

@@ -8,7 +8,6 @@ class Api::MembershipsController < ApplicationController
             render json: @membership.group_id, status: 200
         else
             render :json ['Membership FAILED'], status: 422
-            # render :json @membership.errors.full_messages, status: 422
         end
     end
 

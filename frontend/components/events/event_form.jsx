@@ -26,12 +26,8 @@ class EventForm extends React.Component {
         if (this.state.photoFile) {
             formData.append('event[photo]', this.state.photoFile);
         }
-        // debugger
         this.props.action(formData)
-            .then(() => this.props.history.push(`/groups/`))
-        // The below does not work on create bc it does not have an id yet
-        // refactor to extract id out of json response
-        // .then(() => this.props.history.push(`/groups/${this.state.id}`))
+            .then(() => this.props.history.push(`/groups/${this.state.groupId}`))
     }
 
     handleChange(field) {
@@ -64,13 +60,10 @@ class EventForm extends React.Component {
     }
 
     render() {
-        // debugger
 
-        // if (this.state.toIndex === true) {
-        //     return <Redirect to='/' />
-        // }
         let isCreate = this.props.formType === "Create";
         let theErrors = !!this.props.errors.length ? this.renderErrors() : "";
+        
         return (
             <div className='group-form'>
                 <p className='form-name' >{isCreate ? "Create New Event" : "Update Event Details"}</p>
