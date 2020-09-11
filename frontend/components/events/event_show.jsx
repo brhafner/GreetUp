@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EventPanel from './event_panel';
 
 function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
     let isAttendee = <button onClick={
@@ -20,7 +21,7 @@ function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
     return isAttendee
 }
 
-class GroupShow extends React.Component {
+class EventShow extends React.Component {
     constructor(props) {
         super(props)
         this.handleDelete = this.handleDelete.bind(this)
@@ -81,8 +82,15 @@ class GroupShow extends React.Component {
                     <div className="top-line-info">
                         <p className="item-title">{event.name}</p>
                         <p>This event has {event.attendees.length} people attending</p>
-                        <p>Organized by: {hostName} </p>
+                        {/* <p>Organized by: {hostName} </p> */}
                         {hostTools}
+                        <div className='right'>
+                            <p className="show-about-title">Organizers</p>
+                            <div className="show-about-details">
+                                <span className='organizer-user-icon'></span>
+                                <p>{hostName}</p>
+                            </div>
+                        </div>
                         <IsAttendee
                             event={event}
                             currentUserId={currentUserId}
@@ -92,21 +100,19 @@ class GroupShow extends React.Component {
                         />
                     </div>
                 </div>
-                {/* <div className="item-show-content">
+                <div className="item-show-content">
                     <div className="left">
-                        <GroupPanel group={group} />
+                        <EventPanel event={event} />
                     </div>
                     <div className='right'>
-                        <p className="show-about-title">Organizers</p>
-                        <div className="show-about-details">
-                            <span className='organizer-user-icon'></span>
-                            <p>{organizerName}</p>
+                        <div>
+                            
                         </div>
                     </div>
-                </div> */}
+                </div>
             </div>
         )
     }
 }
 
-export default GroupShow;
+export default EventShow;
