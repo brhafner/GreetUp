@@ -8,7 +8,6 @@ class Api::MembershipsController < ApplicationController
             render json: @membership.group_id, status: 200
         else
             render :json ['Membership FAILED'], status: 422
-            # render :json @membership.errors.full_messages, status: 422
         end
     end
 
@@ -18,7 +17,6 @@ class Api::MembershipsController < ApplicationController
             user_id: current_user.id)
         
         if Membership.destroy(@membership[0].id)
-            # render json: ["Membership Deleted"], status: 200
             render json: params[:group_id], status: 200
         else
             render json: @membership.errors.full_messages, status: 422

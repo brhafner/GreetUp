@@ -33,8 +33,8 @@ export const requestAllEvents = () => dispatch => (
         )
 );
 
-export const requestEvent = (eventId) => dispatch => (
-    EventApiUtil.fetchEvent(eventId)
+export const requestEvent = (groupId, eventId) => dispatch => (
+    EventApiUtil.fetchEvent(groupId, eventId)
         .then(
             event => dispatch(receiveEvent(event)),
             errors => dispatch(receiveErrors(errors.responseJSON))
@@ -57,8 +57,8 @@ export const updateEvent = (event) => dispatch => (
         )
 );
 
-export const deleteEvent = (eventId) => dispatch => (
-    EventApiUtil.deleteEvent(eventId)
+export const deleteEvent = (groupId, eventId) => dispatch => (
+    EventApiUtil.deleteEvent(groupId, eventId)
         .then(
             () => dispatch(removeEvent(eventId)),
             errors => dispatch(receiveErrors(errors.responseJSON))

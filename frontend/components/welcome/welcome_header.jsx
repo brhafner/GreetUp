@@ -1,4 +1,6 @@
 import React from 'react';
+import { Switch, Link } from 'react-router-dom';
+import { matchPath } from 'react-router';
 
 const WelcomeHeader = (props) => {
     return(

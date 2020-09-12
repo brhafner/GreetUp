@@ -4,14 +4,11 @@ import { requestGroup, deleteGroup } from '../../actions/group_actions';
 import { createMembership, deleteMembership } from '../../actions/membership_actions'
 
 
-const mSTP = (state, ownProps) => {
-    const groupId = parseInt(ownProps.match.params.groupId);
-    return {
-        groupId: groupId,
+const mSTP = (state, ownProps) => ({
+        groupId: parseInt(ownProps.match.params.groupId),
         group: state.entities.groups[ownProps.match.params.groupId],
         currentUserId: state.session.currentUserId
-    }
-}
+})
 
 const mDTP = (dispatch) => ({
     requestGroup: (groupId) => dispatch(requestGroup(groupId)),

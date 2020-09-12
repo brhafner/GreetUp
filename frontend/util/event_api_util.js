@@ -4,15 +4,15 @@ export const fetchEvents = () => (
     })
 )
 
-export const fetchEvent = (eventId) => (
+export const fetchEvent = (groupId, eventId) => (
     $.ajax({
-        url: `/api/events/${eventId}`,
+        url: `api/groups/${groupId}/events/${eventId}`
     })
 )
 
 export const createEvent = (event) => {
     return $.ajax({
-        url: '/api/event',
+        url: `/api/groups/${event.get('event[groupId]')}/events`,
         method: 'POST',
         data: event,
         contentType: false,
@@ -22,7 +22,7 @@ export const createEvent = (event) => {
 
 export const updateEvent = (event) => {
     return $.ajax({
-        url: `/api/events/${event.get('event[id]')}`,
+        url: `/api/groups/${event.get('event[groupId]')}/events/${event.get('event[eventId]')}`,
         method: 'PATCH',
         data: event,
         contentType: false,
@@ -30,9 +30,9 @@ export const updateEvent = (event) => {
     })
 }
 
-export const deleteEvent = (eventId) => (
+export const deleteEvent = (groupId, eventId) => (
     $.ajax({
-        url: `/api/event/${eventId}`,
+        url: `api/groups/${groupId}/events/${eventId}`,
         method: 'DELETE'
     })
 )

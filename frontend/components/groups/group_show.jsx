@@ -9,10 +9,15 @@ function IsGroupMember({ group, currentUserId, joinGroup, leaveGroup }){
                 </button>;
     group.members.forEach(memberObj => {
         if (memberObj.id === currentUserId) {
-            isMember = <button 
-                            onClick={() => leaveGroup(group.id)} 
-                            className="session-submit">Leave Group
-                        </button>;
+            isMember = <div>
+                            <button 
+                                onClick={() => leaveGroup(group.id)} 
+                                className="session-submit">Leave Group
+                            </button>
+                            <Link to={`/groups/${group.id}/events/new`} 
+                                className="create-event-button">Create A New Event
+                            </Link>
+                        </div>;
         }
     })
     return isMember
@@ -46,22 +51,18 @@ class GroupShow extends React.Component {
     };
 
     render() {
+    
+        let { group, currentUserId } = this.props;
         
-        let { group, currentUserId, groupId } = this.props;
-        let organizerName = this.props.group.organizer.firstName
-
         if (!group) {
             return null;
         }
+        let organizerName = group.organizer.firstName
 
         let organizerTools = <div className="item-show-manage-container">
             <Link className="item-show-manage" to={`/groups/${group.id}/edit`}>Edit Group Info</Link><br/>
             <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
         </div>
-
-        let joinLeaveButton = this.isGroupMember ?
-            (<button onClick={() => this.handleJoinGroup(groupId)} className="session-submit">Join Group</button>) :
-            (<button onClick={() => this.handleLeaveGroup(groupId)} className="session-submit">Leave Group</button>)
 
         return (
             
@@ -74,7 +75,19 @@ class GroupShow extends React.Component {
                         <p>This group has {group.members.length} members</p>
                         <p>Organized by: {organizerName} </p>
                         {group.organizerId === currentUserId ? organizerTools : ""}
-                        {/* <Link to='/groups' className="session-submit">Return to Group Index Page</Link> */}
+                        {/* <div className='right'>
+                            <p className="show-about-title">Organizers</p>
+                            <div className="show-about-details">
+                                <span className='organizer-user-icon'></span>
+                                <p>{organizerName}</p>
+                            </div>
+                            <IsGroupMember
+                                group={group}
+                                currentUserId={currentUserId}
+                                leaveGroup={(groupId) => this.handleLeaveGroup(groupId)}
+                                joinGroup={(groupId) => this.handleJoinGroup(groupId)}
+                            />
+                        </div> */}
                     </div>
                 </div>
                 <div className="item-show-content">

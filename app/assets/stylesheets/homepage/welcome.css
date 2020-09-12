@@ -55,3 +55,19 @@
 .group-index{
     margin-top: 30px;
 }
+
+.group-index-button{
+    position: absolute;
+    width: 200px; 
+    background: #ed1c40;
+    border-color: #ed1c40;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: .5em;
+    color: #fff;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    margin-top: 200px;
+
+}

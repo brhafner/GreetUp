@@ -1,0 +1,13 @@
+.google-maps-container{
+    background-color: lightgray;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#map {
+        height: 100%;
+      }
