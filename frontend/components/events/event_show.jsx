@@ -48,6 +48,7 @@ class EventShow extends React.Component {
             })
     };
 
+
     render() {
 
         let { event, currentUserId, eventId, groupId } = this.props;
@@ -107,6 +108,7 @@ class EventShow extends React.Component {
                     <div className='right'>
                         <div className='google-maps-container'>
                             <p>Future home of Google Maps API</p>
+                            {/* <div id="map"></div> */}
                         </div>
                     </div>
                 </div>
