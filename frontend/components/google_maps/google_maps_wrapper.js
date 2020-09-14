@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 const mapStyles = {
     width: '300px',
@@ -19,8 +19,13 @@ export class MapContainer extends Component {
                         lat: 37.7749,
                         lng: -122.4194
                     }
-                }
-            />
+                }   
+            >
+            <Marker
+                title={'The marker`s title will appear as a tooltip.'}
+                name={'SOMA'}
+                position={{ lat: 37.778519, lng: -122.405640 }} />
+            </Map>
         );
     }
 }
