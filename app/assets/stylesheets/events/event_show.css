@@ -1,20 +1,25 @@
-/* .google-maps-container{
-    background-color: lightgray;
-    height: 200px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-
-.google_map_item {
-        /* height: 100%; */
-        position: absolute;
-      }
-
 .google-maps-container > div {
         position: absolute;
-        width: 300px;
-        height: 300px;
-      }
+        width: 320px;
+        height: 320px;
+}
+
+.event_action_button{
+    display: inline-block;
+    position: relative;
+    background: #ed1c40;
+    border-color: #ed1c40;
+    width: 250px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: .5em;
+    color: #fff;
+    border-radius: 2px;
+    margin: 5px 0px;
+}
+
+.event_action_button:hover {
+  background: #e21b3c;
+  border-color: #e21b3c;
+}

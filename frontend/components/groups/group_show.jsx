@@ -12,10 +12,10 @@ function IsGroupMember({ group, currentUserId, joinGroup, leaveGroup }){
             isMember = <div>
                             <button 
                                 onClick={() => leaveGroup(group.id)} 
-                                className="session-submit">Leave Group
+                                className="group_action_button">Leave Group
                             </button>
                             <Link to={`/groups/${group.id}/events/new`} 
-                                className="create-event-button">Create A New Event
+                                className="group_action_button">Create A New Event
                             </Link>
                         </div>;
         }

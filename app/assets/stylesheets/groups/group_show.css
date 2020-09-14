@@ -29,7 +29,7 @@
     font-weight: 700;
 }
 
-.create-event-button{
+.group_action_button{
     display: inline-block;
     position: relative;
     background: #ed1c40;
@@ -41,9 +41,10 @@
     padding: .5em;
     color: #fff;
     border-radius: 2px;
+    margin: 5px 0px;
 }
 
-.create-event-button:hover {
+.group_action_button:hover {
   background: #e21b3c;
   border-color: #e21b3c;
 }
