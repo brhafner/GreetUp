@@ -11,7 +11,9 @@ function MembersPane({ members }) {
         {members.map((memberObj, idx) => {
             return <li key={idx} >
                         <span className='member-user-icon'></span>
-                        <span className='members-pane-index-item'>{memberObj.firstName}</span>
+                        <span className='members-pane-index-item'>
+                            {memberObj.firstName}
+                        </span>
                     </li>
         })}
     </ul>;
@@ -25,11 +27,11 @@ function EventsPane({ events, group }) {
     return <ul>
         {events.map((eventObj, idx) => {
             return <li key={idx} >
-                <div className="welcome-item-show-container">
-                    <span>{eventObj.day}</span>
+                <div className="panel-item-show-container">
+                    <span>{new Date(eventObj.day.split('-').join(' ')).toDateString()}</span>
                     <Link to={`/groups/${group.id}/events/${eventObj.id}`}>
-                    <div className="welcome-item">
-                        <span className="welcome-item-time">{eventObj.startTime}</span>
+                    <div className="panel-item">
+                        <span className="panel-item-time">{eventObj.startTime}</span>
                         <span>
                             <p>{eventObj.name}</p>
                             <p>{eventObj.details}</p>
