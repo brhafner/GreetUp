@@ -1,4 +1,9 @@
 const path = require('path');
+const webpack = require('webpack'); // remember to require this, because we DefinePlugin is a webpack plugin
+const dotenv = require('dotenv').config({
+    path: path.join(__dirname, '.env')
+});
+
 
 module.exports = {
     context: __dirname,
@@ -42,7 +47,7 @@ module.exports = {
             // {
             //     // add loader for mp4/ vids
             //     test: /\.(mp4|svg|gif)$/,
-            //     use: {
+            //     use: {.
             //         loader: "file-loader",
             //         options: {
             //             name: "[name].[hash].[ext]"
@@ -51,5 +56,10 @@ module.exports = {
             // }
         ]
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            "process.env": JSON.stringify(dotenv.parsed),
+        }),
+    ],
     devtool: 'source-map'
 };

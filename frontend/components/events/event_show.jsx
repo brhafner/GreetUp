@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EventPanel from './event_panel';
+import GoogleApiWrapper from '../google_maps/google_maps_wrapper'
 
 function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
     let isAttendee = <button onClick={
                         () => joinEvent(event.id)}
-                        className="session-submit">Attend Event
+                        className="event_action_button">Attend Event
                     </button>;
     event.attendees.forEach(attendeeObj => {
         if (attendeeObj.id === currentUserId) {
@@ -13,7 +14,7 @@ function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
                 <div>
                     <button
                         onClick={() => leaveEvent(event.id)}
-                        className="session-submit">Leave Event
+                        className="event_action_button">Leave Event
                     </button>
                 </div>;
         }
@@ -71,8 +72,11 @@ class EventShow extends React.Component {
             </button>
         </div>) : null;
 
+                            console.log('api_key:', process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+                            // console.log('api_key:', process.env);
+                            // console.log('api_key:', "REACT_APP_GOOGLE_MAPS_API_KEY");
         return (
-
+            
             <div className="item-show">
                 <Link to={`/groups/${groupId}`} 
                     className="item-show-manage">Return to Group Page
@@ -86,7 +90,7 @@ class EventShow extends React.Component {
                         {/* <p>Organized by: {hostName} </p> */}
                         {hostTools}
                         <div className='right'>
-                            <p className="show-about-title">Organizers</p>
+                            <p className="show-about-title">Event Host:</p>
                             <div className="show-about-details">
                                 <span className='organizer-user-icon'></span>
                                 <p>{hostName}</p>
@@ -107,8 +111,10 @@ class EventShow extends React.Component {
                     </div>
                     <div className='right'>
                         <div className='google-maps-container'>
-                            <p>Future home of Google Maps API</p>
-                            {/* <div id="map"></div> */}
+                            <GoogleApiWrapper />
+                            {/* <p>Future home of Google Maps API</p>
+                            <div id="map"></div>
+                            {console.log('api_key:', process.env.REACT_APP_GOOGLE_MAPS_API_KEY)} */}
                         </div>
                     </div>
                 </div>
