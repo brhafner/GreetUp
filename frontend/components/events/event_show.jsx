@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EventPanel from './event_panel';
+import GoogleApiWrapper from '../google_maps/google_maps_wrapper'
 
 function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
     let isAttendee = <button onClick={
@@ -71,8 +72,11 @@ class EventShow extends React.Component {
             </button>
         </div>) : null;
 
+                            console.log('api_key:', process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+                            // console.log('api_key:', process.env);
+                            // console.log('api_key:', "REACT_APP_GOOGLE_MAPS_API_KEY");
         return (
-
+            
             <div className="item-show">
                 <Link to={`/groups/${groupId}`} 
                     className="item-show-manage">Return to Group Page
@@ -107,8 +111,10 @@ class EventShow extends React.Component {
                     </div>
                     <div className='right'>
                         <div className='google-maps-container'>
-                            <p>Future home of Google Maps API</p>
-                            {/* <div id="map"></div> */}
+                            <GoogleApiWrapper />
+                            {/* <p>Future home of Google Maps API</p>
+                            <div id="map"></div>
+                            {console.log('api_key:', process.env.REACT_APP_GOOGLE_MAPS_API_KEY)} */}
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,20 @@
-.google-maps-container{
+/* .google-maps-container{
     background-color: lightgray;
     height: 200px;
 
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 
-#map {
-        height: 100%;
+.google_map_item {
+        /* height: 100%; */
+        position: absolute;
+      }
+
+.google-maps-container > div {
+        position: absolute;
+        width: 300px;
+        height: 300px;
       }

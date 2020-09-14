@@ -81,6 +81,8 @@
 .item-show-content .right {
     width: 33%;
     margin-left: 20px;
+    margin-top: 50px;
+    align-self: start;
 }
 
 .show-about-title{
