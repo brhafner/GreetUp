@@ -17,16 +17,20 @@
 }
 
 .top-line-info{
-    margin: 20px;
+    margin: 0 20px;
     width: 33%;
 }
-.top-line-info p{
-    padding: 6px
+.top-line-info span{
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .item-title{
     font-size: 32px;
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .group_action_button{
@@ -41,7 +45,7 @@
     padding: .5em;
     color: #fff;
     border-radius: 2px;
-    margin: 5px 0px;
+    margin: 5px;
 }
 
 .group_action_button:hover {
@@ -49,14 +53,15 @@
   border-color: #e21b3c;
 }
 
-.item-show-manage-container{
+/* .item-show-manage-container{
     margin-top: 10px;
-}
+} */
 
 .item-show-manage{
     padding: 6px;
     color: #2e3e48;
     font-size: 14px;
+    margin-right: 200px;
 }
 
 .item-show-manage:hover{
@@ -81,13 +86,12 @@
 }
 .item-show-content .right {
     width: 33%;
-    margin-left: 20px;
-    margin-top: 50px;
-    align-self: start;
+    margin: 30px 0 0 20px;
+    align-self: flex-start;
 }
 
 .show-about-title{
-    margin: 30px 0 10px 0;
+    margin: 10px 0 10px 0;
     font-size: 20px;
     font-weight: 600;
 }
