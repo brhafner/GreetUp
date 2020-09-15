@@ -1,4 +1,5 @@
 import React from 'react';
+var moment = require('moment-timezone');
 
 class EventForm extends React.Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class EventForm extends React.Component {
         formData.append('event[name]', this.state.name);
         formData.append('event[details]', this.state.details);
         formData.append('event[day]', this.state.day);
-        formData.append('event[startTime]', this.state.startTime);
+        formData.append('event[startTime]', new moment(this.state.startTime, "HH:mm").utc());
         formData.append('event[duration]', this.state.duration);
         formData.append('event[digital]', this.state.digital);
         formData.append('event[address]', this.state.address);
