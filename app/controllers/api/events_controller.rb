@@ -45,7 +45,7 @@ class Api::EventsController < ApplicationController
 
     private
     def event_params
-        params.require(:event).permit(:id, :name, :details, :day, :start_time, :duration, :digital, :address, :group_id, :photo)
+        params.require(:event).permit(:id, :name, :details, :day, :start_time, :duration, :digital, :address, :address_2, :city, :state, :zip, :group_id, :photo)
     end
 
     def add_template_photo(event)

@@ -13,6 +13,10 @@ const mSTP = (state, ownProps) => ({
         duration: "",
         digital: true,
         address: "",
+        address2: "",
+        city: "",
+        state: "",
+        zip: "",
         groupId: parseInt(ownProps.match.params.groupId),
         hostId: state.session.currentUserId
     },

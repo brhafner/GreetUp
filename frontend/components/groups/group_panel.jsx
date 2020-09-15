@@ -1,6 +1,7 @@
 import React from 'react';
 import Headers from './group_panel_header';
 import { Link } from 'react-router-dom';
+var moment = require('moment-timezone');
 
 function MembersPane({ members }) {
     if (members.length === 0) {
@@ -19,20 +20,25 @@ function MembersPane({ members }) {
     </ul>;
 }
 
+function convertUTCToLocalTime(startTimeUTC){
+    return moment.utc(startTimeUTC).local().format('hh:mm z A');
+}
+
 function EventsPane({ events, group }) {
     if (events.length === 0) {
         return <p>This Group has no upcoming events</p>;
     }
-
+    
     return <ul>
         {events.map((eventObj, idx) => {
+            // debugger
             return <li key={idx} >
                 <div className="panel-item-show-container">
                     <span>{new Date(eventObj.day.split('-').join(' ')).toDateString()}</span>
                     <Link to={`/groups/${group.id}/events/${eventObj.id}`}>
                     <div className="panel-item">
                         <span className="panel-item-time">
-                            {new Date(eventObj.startTime).toDateString()}
+                                {convertUTCToLocalTime(eventObj.startTime)}
                         </span>
                         <span className="panel-item-details">
                             <p className="first">{eventObj.name}</p>

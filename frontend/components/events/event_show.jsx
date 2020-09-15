@@ -72,9 +72,6 @@ class EventShow extends React.Component {
             </button>
         </div>) : null;
 
-                            console.log('api_key:', process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
-                            // console.log('api_key:', process.env);
-                            // console.log('api_key:', "REACT_APP_GOOGLE_MAPS_API_KEY");
         return (
             
             <div className="item-show">
