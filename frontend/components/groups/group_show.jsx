@@ -59,35 +59,34 @@ class GroupShow extends React.Component {
         }
         let organizerName = group.organizer.firstName
 
-        let organizerTools = <div className="item-show-manage-container">
-            <Link className="item-show-manage" to={`/groups/${group.id}/edit`}>Edit Group Info</Link><br/>
-            <button className="item-show-manage" onClick={() => this.handleDelete(group.id)}>Delete This Group</button>
-        </div>
+        let organizerTools = group.organizerId === currentUserId ? (
+            <div className="item-show-manage-container">
+                <Link className="item-show-manage" 
+                    to={`/groups/${group.id}/edit`}>Edit Group Info
+                </Link><br/>
+                <button className="item-show-manage" 
+                    onClick={() => this.handleDelete(group.id)}>
+                    Delete This Group
+                </button>
+            </div> ) : "";
+
+        let eventCount = !!group.events ? 
+            <span>This group has {group.events.length} event(s) happening near you</span> : "";
 
         return (
             
             <div className="item-show">
-                <Link to='/groups' className="item-show-manage">Return to Group Index Page</Link>
+                <Link to='/groups' className="item-show-manage">Back to All Groups</Link>
                 <div className="item-show-head">
-                    <img src={group.photoUrl} alt="template_img" className="item-profile-picture"></img>
+                    <img src={group.photoUrl} alt="template_img" 
+                        className="item-profile-picture">
+                    </img>
                     <div className="top-line-info">
                         <p className="item-title">{this.props.group.title}</p>
-                        <p>This group has {group.members.length} members</p>
-                        <p>Organized by: {organizerName} </p>
-                        {group.organizerId === currentUserId ? organizerTools : ""}
-                        {/* <div className='right'>
-                            <p className="show-about-title">Organizers</p>
-                            <div className="show-about-details">
-                                <span className='organizer-user-icon'></span>
-                                <p>{organizerName}</p>
-                            </div>
-                            <IsGroupMember
-                                group={group}
-                                currentUserId={currentUserId}
-                                leaveGroup={(groupId) => this.handleLeaveGroup(groupId)}
-                                joinGroup={(groupId) => this.handleJoinGroup(groupId)}
-                            />
-                        </div> */}
+                        <span>This group has {group.members.length} members</span><br />
+                        {eventCount}
+                        {organizerTools}
+                        {/* {group.organizerId === currentUserId ? organizerTools : ""} */}
                     </div>
                 </div>
                 <div className="item-show-content">

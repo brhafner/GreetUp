@@ -11,7 +11,9 @@ function MembersPane({ members }) {
         {members.map((memberObj, idx) => {
             return <li key={idx} >
                         <span className='member-user-icon'></span>
-                        <span className='members-pane-index-item'>{memberObj.firstName}</span>
+                        <span className='members-pane-index-item'>
+                            {memberObj.firstName}
+                        </span>
                     </li>
         })}
     </ul>;
@@ -25,14 +27,16 @@ function EventsPane({ events, group }) {
     return <ul>
         {events.map((eventObj, idx) => {
             return <li key={idx} >
-                <div className="welcome-item-show-container">
-                    <span>{eventObj.day}</span>
+                <div className="panel-item-show-container">
+                    <span>{new Date(eventObj.day.split('-').join(' ')).toDateString()}</span>
                     <Link to={`/groups/${group.id}/events/${eventObj.id}`}>
-                    <div className="welcome-item">
-                        <span className="welcome-item-time">{eventObj.startTime}</span>
-                        <span>
-                            <p>{eventObj.name}</p>
-                            <p>{eventObj.details}</p>
+                    <div className="panel-item">
+                        <span className="panel-item-time">
+                            {new Date(eventObj.startTime).toDateString()}
+                        </span>
+                        <span className="panel-item-details">
+                            <p className="first">{eventObj.name}</p>
+                            <p className="second">{eventObj.details}</p>
                             {/* <p>1 going</p> */}
                         </span>
                     </div>
@@ -82,7 +86,7 @@ class GroupPanel extends React.Component {
                     <div >
                         <article className='show-about-body'>
                             {this.state.selectedTabTitle === "About" &&
-                                <div>{about}</div>}
+                                <div className="panel-about-pane"><p>{about}</p></div>}
                             {this.state.selectedTabTitle === "Events" &&
                                 <EventsPane events={events} group={this.props.group} className='members-pane-index' />}
                             {this.state.selectedTabTitle === "Members" &&
