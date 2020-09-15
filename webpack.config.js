@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config({
     path: path.join(__dirname, '.env')
 });
 
+console.log(process.env)
 
 module.exports = {
     context: __dirname,
