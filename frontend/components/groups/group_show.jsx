@@ -59,15 +59,19 @@ class GroupShow extends React.Component {
         }
         let organizerName = group.organizer.firstName
 
-        let organizerTools = <div className="item-show-manage-container">
-            <Link className="item-show-manage" 
-                to={`/groups/${group.id}/edit`}>Edit Group Info
-            </Link><br/>
-            <button className="item-show-manage" 
-                onClick={() => this.handleDelete(group.id)}>
-                Delete This Group
-            </button>
-        </div>
+        let organizerTools = group.organizerId === currentUserId ? (
+            <div className="item-show-manage-container">
+                <Link className="item-show-manage" 
+                    to={`/groups/${group.id}/edit`}>Edit Group Info
+                </Link><br/>
+                <button className="item-show-manage" 
+                    onClick={() => this.handleDelete(group.id)}>
+                    Delete This Group
+                </button>
+            </div> ) : "";
+
+        let eventCount = !!group.events ? 
+            <span>This group has {group.events.length} event(s) happening near you</span> : "";
 
         return (
             
@@ -80,9 +84,9 @@ class GroupShow extends React.Component {
                     <div className="top-line-info">
                         <p className="item-title">{this.props.group.title}</p>
                         <span>This group has {group.members.length} members</span><br />
-                        <span>This group has {group.events.length} event(s) happening near you</span>
-                        {/* <p>Organized by: {organizerName} </p> */}
-                        {group.organizerId === currentUserId ? organizerTools : ""}
+                        {eventCount}
+                        {organizerTools}
+                        {/* {group.organizerId === currentUserId ? organizerTools : ""} */}
                     </div>
                 </div>
                 <div className="item-show-content">

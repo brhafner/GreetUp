@@ -1,9 +1,87 @@
+/* Following on Group Panel component and Children */
+.second-nav{
+    /* border-bottom: 1px solid #ccc; */
+    background-color: #ffffff;
+    padding: 15px 15px 10px 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 750px;;
+}
+
+.second-nav li {
+    color: #2e3e48;
+    font-size: 16px;
+}
+
+.second-nav li:hover {
+    color: #0098ab;
+    cursor: pointer;
+}
+
+.active {
+    font-weight: 700;
+}
+
+.group-index-name{
+    color: #2e3e48;
+    font-size: 16px;
+}
+.group-index-name:hover{
+    color: #0098ab;
+    cursor: pointer;
+}
+
+.member-user-icon{
+    margin-top: 8px 10px 0 0; 
+    background:url('../groups/user-icon.png') left top;
+    width:18px; 
+    height:18px;
+    background-size: 18px 18px;
+    display: block;
+    float: left;
+}
+.members-pane-index-item{
+    font-size: 20px;
+    color: #2e3e48;
+    margin: 8px 0px 0 10px;
+}
+
+.show-about-title{
+    margin: 10px 0 10px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.show-about-details{
+    margin-bottom: 20px;
+}
+
+.show-about-details p{
+    padding: 5px 0;
+    font-size: 18px;
+}
+
+.show-about-body{
+    font-size: 16px;
+    max-width: 700px;
+    min-height: 400px;
+    background-color: #ffffff;
+    padding: 15px 15px 10px 15px;
+    border-top: 1px solid #ccc;
+}
+
 .panel-item-show-container{
     width: 70%;
     box-sizing: border-box;
     margin-top: 30px;
     padding-left: 20px;
     text-align: left;
+}
+
+.panel-item-show-container > span{
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .panel-item{
@@ -18,6 +96,30 @@
 }
 
 .panel-item-time{
-    width: 50px;
+    width: 30%;
+    margin: 20px;
+}
+
+.panel-item-details{
+    width: 70%;
+}
+
+.panel-item-details .first{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.panel-about-pane{
+    margin-left: 35px;
+    border: 1px solid #ccc;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-about-pane p{
+    font-size: 16px;
+    font-weight: 700;
     margin: 20px;
 }

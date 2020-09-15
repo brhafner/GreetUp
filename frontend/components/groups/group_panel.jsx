@@ -31,10 +31,12 @@ function EventsPane({ events, group }) {
                     <span>{new Date(eventObj.day.split('-').join(' ')).toDateString()}</span>
                     <Link to={`/groups/${group.id}/events/${eventObj.id}`}>
                     <div className="panel-item">
-                        <span className="panel-item-time">{eventObj.startTime}</span>
-                        <span>
-                            <p>{eventObj.name}</p>
-                            <p>{eventObj.details}</p>
+                        <span className="panel-item-time">
+                            {new Date(eventObj.startTime).toDateString()}
+                        </span>
+                        <span className="panel-item-details">
+                            <p className="first">{eventObj.name}</p>
+                            <p className="second">{eventObj.details}</p>
                             {/* <p>1 going</p> */}
                         </span>
                     </div>
@@ -84,7 +86,7 @@ class GroupPanel extends React.Component {
                     <div >
                         <article className='show-about-body'>
                             {this.state.selectedTabTitle === "About" &&
-                                <div>{about}</div>}
+                                <div className="panel-about-pane"><p>{about}</p></div>}
                             {this.state.selectedTabTitle === "Events" &&
                                 <EventsPane events={events} group={this.props.group} className='members-pane-index' />}
                             {this.state.selectedTabTitle === "Members" &&
