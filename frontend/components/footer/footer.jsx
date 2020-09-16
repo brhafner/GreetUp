@@ -15,17 +15,16 @@ class Footer extends React.Component{
                     </ul>
                     <ul>
                         <li className="li-top">Discover</li>
-                        <li>Groups</li>
-                        <li>Calendar</li>
-                        <li>Cities</li>
+                        <li><Link className="content-title" to="/login">Groups</Link></li>
+                        <li><Link className="content-title" to="/login">Calendar</Link></li>
+                        <li><Link className="content-title" to="/login">Cities</Link></li>
                     </ul>
                     <ul>
                         <li className="li-top">GreetUp</li>
-                        <li>About</li>
+                        <li><Link className="content-title" to="/about">About</Link></li>
                     </ul>
                 </div>
                 <div className="last-foot">
-                    <br/>
                     <span>© 2020 Geetup LLC</span>
                 </div>
             </div>

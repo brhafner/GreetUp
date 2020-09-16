@@ -1,0 +1,27 @@
+.about-banner{
+    min-height: 50vw;
+    background: rgb(122, 29, 71);
+    /* display: flex;
+    justify-content: space-around;
+    align-items: flex-start; */
+}
+
+.about-banner p:first-child{
+    font-size: 62px;
+    font-weight: 700;
+    color: white;
+    padding-top: 20vw;
+    align-self: left;
+}
+
+.about-banner p:nth-child(2){
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    padding: 3vw 6vw;
+    
+}
+/* .about-banner NavLink{
+    align-self: left;
+} */
+

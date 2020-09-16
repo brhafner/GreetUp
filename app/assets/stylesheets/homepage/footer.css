@@ -26,6 +26,16 @@
     padding: 0px 16px 16px 0px;
 }
 
+.content-title{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.content-title:hover{
+    font-size: 16px;
+    font-weight: 300;
+    color: #f64060;
+}
 .last-foot{
     background-color: #212121;
     height: 50px;
