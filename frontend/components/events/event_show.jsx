@@ -7,7 +7,7 @@ var moment = require('moment-timezone');
 function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
     let isAttendee = <button onClick={
                         () => joinEvent(event.id)}
-                        className="event_action_button">Attend Event
+                        className="event-action-button">Attend Event
                     </button>;
     event.attendees.forEach(attendeeObj => {
         if (attendeeObj.id === currentUserId) {
@@ -15,7 +15,7 @@ function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
                 <div>
                     <button
                         onClick={() => leaveEvent(event.id)}
-                        className="event_action_button">Leave Event
+                        className="event-action-button">Leave Event
                     </button>
                 </div>;
         }
@@ -36,7 +36,9 @@ class EventShow extends React.Component {
     }
 
     componentDidMount() {
+        this.props.requestGroup(this.props.groupId)
         this.props.requestEvent(this.props.groupId, this.props.eventId)
+        // request Group since refereincing group info and crashes on refresh?
     }
 
     handleJoinEvent(eventId) {
@@ -57,9 +59,9 @@ class EventShow extends React.Component {
 
     render() {
 
-        let { event, currentUserId, eventId, groupId } = this.props;
+        let { event, currentUserId, eventId, groupId, group } = this.props;
 
-        if (!event) {
+        if (!event || !group) {
             return null;
         }
         let hostName = event.host.firstName  
@@ -107,8 +109,20 @@ class EventShow extends React.Component {
                     <img src={event.photoUrl} alt="template_img" 
                     className="item-profile-picture"></img>
                     <div className="top-line-info">
-                        <p className="item-title">{event.name}</p>
-                        <p>This event has {event.attendees.length} people attending</p>
+                        <Link to={`/groups/${groupId}`}>
+                            <div className="event-group-card">
+                                <img src={group.photoUrl} alt="template_img"></img>
+                                <span>{group.title}</span>
+                            </div>
+                        </Link>
+                        <div className="event-date-time-card">
+                            <p>{new Date(event.day.split('-').join(' ')).toDateString()}</p>
+                            <p>{convertUTCToLocalTime(event.startTime)}</p>
+                            <p>{`${event.address}`}</p>
+                            <p>{`${event.city}, ${event.state}`}</p>
+                        </div>
+                        {/* <p className="item-title">{event.name}</p> */}
+                        {/* <p>This event has {event.attendees.length} people attending</p> */}
                         {/* <p>Organized by: {hostName} </p> */}
                         
                         {/* <div className='right'>
