@@ -1,3 +1,52 @@
+.event-show{
+    border-top: 1px solid #ccc;
+}
+
+.event-show-top-line{
+  text-align: left;
+  min-height: 10vw;
+  background-color: white;
+  padding: 25px 0 25px 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-show-top-line-date{
+  font-size: 16px;
+  color: #757575;
+  margin: 5px 0;
+}
+
+.event-show-top-line > div > p{
+  font-size: 32px;
+  color: #212121;
+  margin-bottom: 15px;
+}
+
+.event-organizer-user-icon{
+    margin:0 10px 0 0; 
+    background:url('../groups/user-icon.png') left top;
+    width:50px; 
+    height:50px;
+    background-size: 50px 50px;
+    display: block;
+    float: left;
+}
+
+.event-host-details p:first-child{
+  font-size: 16px;
+  color: #212121;
+  font-weight: 600;
+}
+
+.event-host-details p:last-child{
+  font-size: 16px;
+  color: #212121;
+  /* font-weight: 600; */
+}
+
+
+
 .google-maps-container > div {
         position: absolute;
         width: 320px;

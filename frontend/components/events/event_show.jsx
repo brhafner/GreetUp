@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import EventPanel from './event_panel';
 import GoogleApiWrapper from '../google_maps/google_maps_wrapper'
+var moment = require('moment-timezone');
 
 function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
     let isAttendee = <button onClick={
@@ -20,6 +21,10 @@ function IsAttendee({ event, currentUserId, joinEvent, leaveEvent }) {
         }
     })
     return isAttendee
+}
+
+function convertUTCToLocalTime(startTimeUTC) {
+    return moment.utc(startTimeUTC).local().format('hh:mm z A');
 }
 
 class EventShow extends React.Component {
@@ -74,10 +79,30 @@ class EventShow extends React.Component {
 
         return (
             
-            <div className="item-show">
-                <Link to={`/groups/${groupId}`} 
+            <div className="event-show">
+                {/* <Link to={`/groups/${groupId}`} 
                     className="item-show-manage">Return to Group Page
-                </Link>
+                </Link> */}
+                <div className="event-show-top-line">
+                    <div>
+                        <div>
+                            <span className="event-show-top-line-date">
+                                {new Date(event.day.split('-').join(' ')).toDateString()}
+                            </span>
+                        </div>
+                        <p>{event.name}</p>
+                        <div>
+                            <span className='event-organizer-user-icon'></span>
+                            <span className="event-host-details">
+                                <p className="show-about-title">Hosted By:</p>
+                                <p className="host-name">{hostName}</p>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        {hostTools}
+                    </div>
+                </div>
                 <div className="item-show-head">
                     <img src={event.photoUrl} alt="template_img" 
                     className="item-profile-picture"></img>
@@ -85,14 +110,14 @@ class EventShow extends React.Component {
                         <p className="item-title">{event.name}</p>
                         <p>This event has {event.attendees.length} people attending</p>
                         {/* <p>Organized by: {hostName} </p> */}
-                        {hostTools}
-                        <div className='right'>
+                        
+                        {/* <div className='right'>
                             <p className="show-about-title">Event Host:</p>
                             <div className="show-about-details">
                                 <span className='organizer-user-icon'></span>
                                 <p>{hostName}</p>
                             </div>
-                        </div>
+                        </div> */}
                         <IsAttendee
                             event={event}
                             currentUserId={currentUserId}
