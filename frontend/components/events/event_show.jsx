@@ -38,7 +38,6 @@ class EventShow extends React.Component {
     componentDidMount() {
         this.props.requestGroup(this.props.groupId)
         this.props.requestEvent(this.props.groupId, this.props.eventId)
-        // request Group since refereincing group info and crashes on refresh?
     }
 
     handleJoinEvent(eventId) {

@@ -63,6 +63,11 @@
   background-color: white;
 }
 
+.event-group-card > span{
+  font-size: 22px;
+  color: #212121;
+}
+
 .event-date-time-card{
   max-width: 450px;
   min-height: 100px;
@@ -71,6 +76,16 @@
   margin: 20px 0;
   border-radius: 5px;
   background-color: white;
+}
+
+.event-date-time-card p{
+  font-size: 16px;
+  color: #757575;
+  padding: 3px;
+}
+
+.event-date-time-card p:nth-child(2){
+  padding: 6px;
 }
 
 .google-maps-container > div {
