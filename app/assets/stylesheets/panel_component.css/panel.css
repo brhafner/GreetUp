@@ -33,6 +33,28 @@
     cursor: pointer;
 }
 
+.member-pane-index{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.member-list-item{
+    height: 200px;
+    width: 150px;
+    border: 1.5px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .member-user-icon{
     margin-top: 8px 10px 0 0; 
     background:url('../groups/user-icon.png') left top;
@@ -41,11 +63,6 @@
     background-size: 18px 18px;
     display: block;
     float: left;
-}
-.members-pane-index-item{
-    font-size: 20px;
-    color: #2e3e48;
-    margin: 8px 0px 0 10px;
 }
 
 .show-about-title{
@@ -69,6 +86,9 @@
     min-height: 400px;
     background-color: #ffffff;
     padding: 15px 15px 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* border-top: 1px solid #ccc; */
 }
 
@@ -110,17 +130,38 @@
     font-weight: 700;
 }
 
+.group-info-item-title{
+    font-size: 24px;
+    padding: 20px;
+    text-align: left;
+}
+
+.group-info-item-title + p{
+    font-size: 16px;
+    padding: 20px;
+    text-align: left;
+}
+
 .panel-about-pane{
-    margin-left: 35px;
-    border: 1px solid #ccc;
-    min-height: 300px;
+    min-height: 250px;
+}
+.panel-photos-pane{
+    border: 2px solid lightgray;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 20vw;
+    width: 90%;
 }
 
-.panel-about-pane p{
-    font-size: 16px;
-    /* font-weight: 600; */
-    margin: 20px;
+.panel-photos-pane > p{
+    font-size: 24px;
+}
+
+.group-content-placeholder{
+    font-size: 24px;
+    padding: 100px;
+    border: 2px solid lightgray;
+    border-radius: 5px;
 }
