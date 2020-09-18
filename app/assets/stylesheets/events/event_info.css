@@ -1,0 +1,48 @@
+.event-info-item-title{
+    font-size: 20px;
+    padding: 20px;
+    text-align: left;
+}
+
+.event-info-item-title + p{
+    font-size: 16px;
+    padding: 20px;
+    text-align: left;
+}
+
+
+.attendee-pane-index{
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.attendee-list-item{
+    height: 200px;
+    width: 150px;
+    border: 1.5px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.attendee-user-icon{
+    margin-top: 8px 10px 0 20px; 
+    background:url('../groups/user-icon.png') left top;
+    width:80px; 
+    height:80px;
+    background-size: 80px 80px;
+    display: block;
+}
+
+.attendee-pane-index-item{
+    font-size: 20px;
+    color: #2e3e48;
+    margin-top: 10px;
+}
+

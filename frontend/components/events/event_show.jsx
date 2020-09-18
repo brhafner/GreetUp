@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EventPanel from './event_panel';
+// import EventPanel from './event_panel';
+import EventInfo from './event_info_all';
 import GoogleApiWrapper from '../google_maps/google_maps_wrapper'
 var moment = require('moment-timezone');
 
@@ -81,9 +82,6 @@ class EventShow extends React.Component {
         return (
             
             <div className="event-show">
-                {/* <Link to={`/groups/${groupId}`} 
-                    className="item-show-manage">Return to Group Page
-                </Link> */}
                 <div className="event-show-top-line">
                     <div>
                         <div>
@@ -120,17 +118,6 @@ class EventShow extends React.Component {
                             <p>{`${event.address}`}</p>
                             <p>{`${event.city}, ${event.state}`}</p>
                         </div>
-                        {/* <p className="item-title">{event.name}</p> */}
-                        {/* <p>This event has {event.attendees.length} people attending</p> */}
-                        {/* <p>Organized by: {hostName} </p> */}
-                        
-                        {/* <div className='right'>
-                            <p className="show-about-title">Event Host:</p>
-                            <div className="show-about-details">
-                                <span className='organizer-user-icon'></span>
-                                <p>{hostName}</p>
-                            </div>
-                        </div> */}
                         <IsAttendee
                             event={event}
                             currentUserId={currentUserId}
@@ -142,18 +129,16 @@ class EventShow extends React.Component {
                 </div>
                 <div className="item-show-content">
                     <div className="left">
-                        <EventPanel event={event} />
+                        {/* <EventPanel event={event} /> */}
+                        <EventInfo event={event} />
                     </div>
                     <div className='right'>
                         <div className='google-maps-container'>
                             <GoogleApiWrapper />
-                            {/* <p>Future home of Google Maps API</p>
-                            <div id="map"></div>
-                            {console.log('api_key:', process.env.REACT_APP_GOOGLE_MAPS_API_KEY)} */}
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         )
     }
 }
