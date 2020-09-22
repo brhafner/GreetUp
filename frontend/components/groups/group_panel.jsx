@@ -31,7 +31,6 @@ function EventsPane({ events, group }) {
     
     return <ul>
         {events.map((eventObj, idx) => {
-            // debugger
             return <li key={idx} >
                 <div className="panel-item-show-container">
                     <span>{new Date(eventObj.day.split('-').join(' ')).toDateString()}</span>

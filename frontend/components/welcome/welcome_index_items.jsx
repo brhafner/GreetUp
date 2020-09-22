@@ -1,5 +1,50 @@
 import React from 'react';
 
+
+// function EventsPane({ events, group }) {
+//     if (events.length === 0) {
+//         return <p className="group-content-placeholder">This Group has no upcoming events</p>;
+//     }
+
+//     return <ul>
+//         {events.map((eventObj, idx) => {
+//             return <li key={idx} >
+//                 <div className="panel-item-show-container">
+//                     <span>{new Date(eventObj.day.split('-').join(' ')).toDateString()}</span>
+//                     <Link to={`/groups/${eventObj.groupId}/events/${eventObj.id}`}>
+//                         <div className="panel-item">
+//                             <span className="panel-item-time">
+//                                 {convertUTCToLocalTime(eventObj.startTime)}
+//                             </span>
+//                             <span className="panel-item-details">
+//                                 <p className="first">{eventObj.name}</p>
+//                                 <p className="second">{eventObj.details}</p>
+//                                 {/* <p>1 going</p> */}
+//                             </span>
+//                         </div>
+//                     </Link>
+//                 </div>
+//             </li>
+//         })}
+//     </ul>;
+// }
+
+
+// class WelcomeIndexItems extends React.Component {
+//     componentDidMount(){
+//         this.props.requestAllEvents
+//     }
+
+//     render(){
+//         debugger
+//         return < EventsPane events={this.props.events.events}/>
+//     }
+// }
+
+
+
+
+
 const WelcomeIndexItems = (props) => {
     const d = new Date()
     return (
