@@ -8,16 +8,16 @@ function MembersPane({ members }) {
         return <p>This Group has no active members</p>;
     }
 
-    return <ul>
-        {members.map((memberObj, idx) => {
-            return <li key={idx} >
-                        <span className='member-user-icon'></span>
-                        <span className='members-pane-index-item'>
-                            {memberObj.firstName}
-                        </span>
-                    </li>
-        })}
-    </ul>;
+    return <ul className="member-pane-index">
+                {members.map((memberObj, idx) => {
+                    return <li key={idx} className="member-list-item">
+                        <span className='attendee-user-icon'></span>
+                        <span className='attendee-pane-index-item'>
+                                    {memberObj.firstName}
+                                </span>
+                            </li>
+                })}
+        </ul>;
 }
 
 function convertUTCToLocalTime(startTimeUTC){
@@ -26,12 +26,11 @@ function convertUTCToLocalTime(startTimeUTC){
 
 function EventsPane({ events, group }) {
     if (events.length === 0) {
-        return <p>This Group has no upcoming events</p>;
+        return <p className="group-content-placeholder">This Group has no upcoming events</p>;
     }
     
     return <ul>
         {events.map((eventObj, idx) => {
-            // debugger
             return <li key={idx} >
                 <div className="panel-item-show-container">
                     <span>{new Date(eventObj.day.split('-').join(' ')).toDateString()}</span>
@@ -92,13 +91,19 @@ class GroupPanel extends React.Component {
                     <div >
                         <article className='show-about-body'>
                             {this.state.selectedTabTitle === "About" &&
-                                <div className="panel-about-pane"><p>{about}</p></div>}
+                                <div className="panel-about-pane">
+                                    <p className="group-info-item-title">About this Group:</p>
+                                    <p>{about}</p>
+                                </div>}
                             {this.state.selectedTabTitle === "Events" &&
                                 <EventsPane events={events} group={this.props.group} className='members-pane-index' />}
                             {this.state.selectedTabTitle === "Members" &&
                                 <MembersPane members={members} className='members-pane-index'/>}
                             {this.state.selectedTabTitle === "Photos" &&
-                                <div>{<img src={photoUrl} />}</div>}
+                                <div className="panel-photos-pane">
+                                    <p>This Group has no photos posted yet</p>
+                                </div>}
+                            {/* <div>{<img src={photoUrl} />}</div> */}
                         </article>
                     </div>
                 </div>

@@ -58,12 +58,13 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             "process.env": JSON.stringify(dotenv.parsed),
+            "process.env.REACT_APP_GOOGLE_MAPS_API_KEY": JSON.stringify(process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
             // 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         }),
-        new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-            API_HOST: JSON.stringify(process.env.API_HOST)
-        })
+        // new webpack.DefinePlugin({
+        //     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        //     API_HOST: JSON.stringify(process.env.API_HOST)
+        // })
     ],
     devtool: 'source-map'
 };
