@@ -72,7 +72,8 @@
 .item-show-content{
     border-top: 1px solid #ccc;
     padding: 0 20px;
-    min-height: 300px;
+    margin-bottom: 20px;
+    min-height: 400px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
@@ -83,6 +84,8 @@
 .item-show-content .left {
     width: 66%;
     margin-right: 20px;
+    /* max-height: 600px;
+    overflow: scroll; */
 }
 .item-show-content .right {
     width: 33%;

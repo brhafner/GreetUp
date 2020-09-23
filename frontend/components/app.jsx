@@ -12,14 +12,16 @@ import WelcomePage from './welcome/welcome'
 
 const App = () => (
     <div>
-        <MainNav />
-        <Switch>
-            <AuthRoute exact path="/login" component={LoginFormContainer} />
-            <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route exact path="/about" component={AboutPage} />
-            <ProtectedRoute path="/" component={WelcomePage} />
-        </Switch>
-        <Footer />
+        <div className="app-container">
+            <MainNav />
+            <Switch>
+                <AuthRoute exact path="/login" component={LoginFormContainer} />
+                <AuthRoute exact path="/signup" component={SignupFormContainer} />
+                <Route exact path="/about" component={AboutPage} />
+                <ProtectedRoute path="/" component={WelcomePage} />
+            </Switch>
+        </div>
+        <Footer className="footer-component"/>
     </div>
 );
 

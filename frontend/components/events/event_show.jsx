@@ -27,6 +27,37 @@ function convertUTCToLocalTime(startTimeUTC) {
     return moment.utc(startTimeUTC).local().format('hh:mm z A');
 }
 
+function EventLocation({ event }){
+
+    if(event.address === "" || !event.address){
+        return (
+            <div className="event-date-time-card">
+                <p>This Event is Remote</p>
+                <p>Check Event Details for digital address</p>
+            </div>
+        );
+    }
+
+    return (
+        <div className="event-date-time-card">
+            <p>{new Date(event.day.split('-').join(' ')).toDateString()}</p>
+            <p>{convertUTCToLocalTime(event.startTime)}</p>
+            <p>{`${event.address}`}</p>
+            <p>{`${event.city}, ${event.state}`}</p>
+        </div>
+    )
+}
+
+function GoogleMapsContainer({ event }){
+    if(event.digital){
+        return ( <p className="digital-event-map-placeholder">
+            {/* <p>This Event Is Remote</p> */}
+        </p>)
+    }
+
+    return (<GoogleApiWrapper event={event}/>)
+}
+
 class EventShow extends React.Component {
     constructor(props) {
         super(props)
@@ -111,12 +142,7 @@ class EventShow extends React.Component {
                                 <span>{group.title}</span>
                             </div>
                         </Link>
-                        <div className="event-date-time-card">
-                            <p>{new Date(event.day.split('-').join(' ')).toDateString()}</p>
-                            <p>{convertUTCToLocalTime(event.startTime)}</p>
-                            <p>{`${event.address}`}</p>
-                            <p>{`${event.city}, ${event.state}`}</p>
-                        </div>
+                        <EventLocation event={event} />
                         <IsAttendee
                             event={event}
                             currentUserId={currentUserId}
@@ -132,7 +158,7 @@ class EventShow extends React.Component {
                     </div>
                     <div className='right'>
                         <div className='google-maps-container'>
-                            <GoogleApiWrapper />
+                            <GoogleMapsContainer event={event}/>
                     </div>
                 </div>
             </div>

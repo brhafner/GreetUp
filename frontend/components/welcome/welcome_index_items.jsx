@@ -47,7 +47,6 @@ class WelcomeIndexItems extends React.Component {
         if (!events) {
             return null;
         }
-        // return < EventsPane events={events}/>
         return (<div className="item-show-content">
                     <div className="left">
                         <EventsPane events={events} />

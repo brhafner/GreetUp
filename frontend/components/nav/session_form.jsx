@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
             email: "",
             password: ""
         };
-        this.demoUser = { firstName: "demo2", email: "demo2@aa.io", password: "password" }
+        this.demoUser = { firstName: "Demo User", email: "test@aa.io", password: "password" }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
     }

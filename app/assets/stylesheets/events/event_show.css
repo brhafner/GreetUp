@@ -52,7 +52,9 @@
   border-radius: 5px;
   background-color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
 }
 
@@ -64,8 +66,9 @@
 }
 
 .event-group-card > span{
-  font-size: 22px;
+  font-size: 24px;
   color: #212121;
+  margin: 8px;
 }
 
 .event-date-time-card{
@@ -76,6 +79,10 @@
   margin: 20px 0;
   border-radius: 5px;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .event-date-time-card p{
@@ -113,6 +120,28 @@
   background: #e21b3c;
   border-color: #e21b3c;
 }
+
+.digital-event-map-placeholder{
+    font-size: 24px;
+    padding: 100px;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    background: url(location_icon.jpg) left top;
+    height:300px;
+    width:300px; 
+    background-size: 300px 300px;
+    /* background:url(user-icon.png) left top; */
+}
+
+/* .digital-event-map-placeholder > p{
+  font-size: 24px;
+  position: absolute;
+} */
+
+
+
+
+
 
 /* #ff1154 */
 /* c80000 */

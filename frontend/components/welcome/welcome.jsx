@@ -8,7 +8,6 @@ import CreateEventContainer from '../events/create_event_form_container';
 import EditEventContainer from '../events/edit_event_form_container';
 import EventShowContainer from '../events/event_show_container';
 import WelcomeHeader from './welcome_header';
-// import WelcomeIndexItems from './welcome_index_items';
 import WelcomeIndexItemsContainer from './welcome_index_items_container';
 
 const WelcomePage = (props) => {
@@ -26,7 +25,6 @@ const WelcomePage = (props) => {
                 <Link to="/groups/" className="session-submit">Search Groups Near You</Link>
             </Switch>
             <Route exact path="/" component={WelcomeIndexItemsContainer} />
-            {/* <Route exact path="/" component={WelcomeIndexItems} /> */}
         </div>
     )
 }

@@ -1,3 +1,8 @@
+.footer-component{
+    position: absolute;
+    bottom: 0px;
+}
+
 .footer-container{
     background-color: #202527;
     width: 100%;
@@ -17,9 +22,7 @@
 .footer-container ul .li-top{
     font-weight: 600;
 }
-/* .footer-container ul{
-    font-weight: 400;
-} */
+
 .footer-container ul li{
     font-size: 16px;
     font-weight: 300;
