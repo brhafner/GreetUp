@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 var moment = require('moment-timezone');
+import GoogleApiWrapper from '../google_maps/google_maps_wrapper'
 
 function convertUTCToLocalTime(startTimeUTC) {
     return moment.utc(startTimeUTC).local().format('hh:mm z A');
@@ -10,7 +11,7 @@ function EventsPane({ events }) {
     if (!events) {
         return <p className="group-content-placeholder">You have no upcoming events at this time</p>;
     }
-    
+
     return <ul>
         {events.map((eventObj, idx) => {
             return <li key={idx} >
@@ -46,7 +47,17 @@ class WelcomeIndexItems extends React.Component {
         if (!events) {
             return null;
         }
-        return < EventsPane events={events}/>
+        // return < EventsPane events={events}/>
+        return (<div className="item-show-content">
+                    <div className="left">
+                        <EventsPane events={events} />
+                    </div>
+                    <div className='right'>
+                        <div className='google-maps-container'>
+                            <GoogleApiWrapper />
+                        </div>
+                </div>
+            </div>)
     }
 }
 

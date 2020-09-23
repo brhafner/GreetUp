@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import EventPanel from './event_panel';
 import EventInfo from './event_info_all';
 import GoogleApiWrapper from '../google_maps/google_maps_wrapper'
 var moment = require('moment-timezone');
@@ -129,7 +128,6 @@ class EventShow extends React.Component {
                 </div>
                 <div className="item-show-content">
                     <div className="left">
-                        {/* <EventPanel event={event} /> */}
                         <EventInfo event={event} />
                     </div>
                     <div className='right'>
