@@ -1,9 +1,11 @@
 import {
     RECEIVE_ALL_EVENTS,
     RECEIVE_EVENT,
-    DELETE_EVENT
+    DELETE_EVENT,
+    CLEAR_EVENTS
 } from '../actions/event_actions';
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions'
+import { CLEAR_GROUPS } from '../actions/group_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 
 const eventsReducer = (oldState = {}, action) => {
@@ -18,6 +20,10 @@ const eventsReducer = (oldState = {}, action) => {
         case DELETE_EVENT:
             delete nextState[action.eventId];
             return nextState;
+        case CLEAR_EVENTS:
+            return {};
+        case CLEAR_GROUPS:
+            return {};
         case LOGOUT_CURRENT_USER:
             return {};
         default:

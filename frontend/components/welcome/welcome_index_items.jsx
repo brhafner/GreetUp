@@ -10,7 +10,7 @@ function EventsPane({ events }) {
     if (!events) {
         return <p className="group-content-placeholder">You have no upcoming events at this time</p>;
     }
-    // debugger
+    
     return <ul>
         {events.map((eventObj, idx) => {
             return <li key={idx} >
@@ -42,7 +42,7 @@ class WelcomeIndexItems extends React.Component {
 
     render(){
         let { events } = this.props;
-        // debugger
+
         if (!events) {
             return null;
         }
