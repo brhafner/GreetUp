@@ -4,6 +4,7 @@ export const RECEIVE_ALL_GROUPS = 'RECEIVE_ALL_GROUPS';
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const DELETE_GROUP = 'DELETE_GROUP';
 export const RECEIVE_GROUP_ERRORS = 'RECEIVE_GROUP_ERRORS';
+export const CLEAR_GROUPS = 'CLEAR_GROUPS';
 
 
 const receieveAllGroups = (groups) => ({
@@ -26,6 +27,10 @@ const receiveErrors = (errors) => ({
     errors
 })
 
+const clearGroups = () => ({
+    type: CLEAR_GROUPS,
+})
+
 export const requestAllGroups = () => dispatch => (
     GroupApiUtil.fetchGroups()
         .then( 
@@ -33,12 +38,16 @@ export const requestAllGroups = () => dispatch => (
             errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
-export const requestGroup = (groupId) => dispatch => (
-    GroupApiUtil.fetchGroup(groupId)
+export const requestGroup = (groupId) => dispatch => {
+
+    dispatch(clearGroups());
+
+    return (GroupApiUtil.fetchGroup(groupId)
         .then(
             group => dispatch(receieveGroup(group)),
             errors => dispatch(receiveErrors(errors.responseJSON)))
-);
+    )
+};
 
 export const createGroup = (group) => dispatch => (
     GroupApiUtil.createGroup(group)

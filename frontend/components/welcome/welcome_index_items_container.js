@@ -5,7 +5,7 @@ import { requestAllEvents } from '../../actions/event_actions';
 
 
 const mSTP = (state) => ({
-    events: this.state.entities
+    events: Object.values(state.entities.events)
 })
 
 const mDTP = (dispatch) => ({

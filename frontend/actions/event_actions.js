@@ -4,6 +4,7 @@ export const RECEIVE_ALL_EVENTS = 'RECEIVE_ALL_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
 export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
+export const CLEAR_EVENTS = 'CLEAR_EVENTS';
 
 const receieveAllEvents = (events) => ({
     type: RECEIVE_ALL_EVENTS,
@@ -25,6 +26,10 @@ const receiveErrors = (errors) => ({
     errors
 })
 
+const clearEvents = () => ({
+    type: CLEAR_EVENTS,
+})
+
 export const requestAllEvents = () => dispatch => (
     EventApiUtil.fetchEvents()
         .then(
@@ -33,13 +38,17 @@ export const requestAllEvents = () => dispatch => (
         )
 );
 
-export const requestEvent = (groupId, eventId) => dispatch => (
-    EventApiUtil.fetchEvent(groupId, eventId)
+export const requestEvent = (groupId, eventId) => dispatch => {
+    
+    dispatch(clearEvents());
+
+   return ( EventApiUtil.fetchEvent(groupId, eventId)
         .then(
             event => dispatch(receiveEvent(event)),
             errors => dispatch(receiveErrors(errors.responseJSON))
         )
-);
+   )
+};
 
 export const createEvent = (event) => dispatch => (
     EventApiUtil.createEvent(event)
