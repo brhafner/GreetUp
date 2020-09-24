@@ -6,7 +6,7 @@ function AboutPage(){
         <div className='about-banner'>
             <p>GreetUp creates possibilities</p>
             <p>GreetUp is inpsired by MeetUp and is a platform for finding and building 
-                local communities. People use Meetup to meet new people, 
+                local communities. People use GreetUp to meet new people, 
                 learn new things, find support, get out of their comfort 
                 zones, and pursue their passions, together.
             </p>
