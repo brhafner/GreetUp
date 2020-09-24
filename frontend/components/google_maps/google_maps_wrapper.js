@@ -9,6 +9,40 @@ const mapStyles = {
 };
 
 export class MapContainer extends Component {
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         lat: null,
+    //         long: null
+    //     }
+    // }
+
+    // componentDidMount(){
+    //     if(!this.props.event){break}
+
+    //     let [latitude, setLatitude] = React.useState(-33.7560119)
+    //     let [longitude, setLongitude] = React.useState(150.6038367)
+    //     let [address, setAddress] = React.useState('')
+
+    //     let 
+    //     const encodedAddress = encodeURI(address)
+
+    //     fetch(`https://google-maps-geocoding.p.rapidapi.com/geocode/json?language=en&address=${encodedAddress}`, {
+    //         "method": "GET",
+    //         "headers": {
+    //             "x-rapidapi-host": "google-maps-geocoding.p.rapidapi.com",
+    //             "x-rapidapi-key": process.env.RAPIDAPI_KEY
+    //         }
+    //     })
+    //         .then(response => response.json())
+    //         .then(response => {
+    //             setLatitude(response.lat)
+    //             setLongitude(response.long)
+    //         })
+    //         .catch(err => console.log(err))
+    // }
+    // }
+
     render() {
         return (
             <Map
