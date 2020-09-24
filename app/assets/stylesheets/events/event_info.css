@@ -37,7 +37,7 @@
 
 .attendee-user-icon{
     margin-top: 8px 10px 0 20px; 
-    background:url('../groups/user-icon.png') left top;
+    background:url(https://greet-up-seeds.s3-us-west-1.amazonaws.com/user-icon.jpg) left top;
     width:80px; 
     height:80px;
     background-size: 80px 80px;

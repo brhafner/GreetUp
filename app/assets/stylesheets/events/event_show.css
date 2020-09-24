@@ -25,7 +25,7 @@
 
 .event-organizer-user-icon{
     margin:0 10px 0 0; 
-    background:url('../groups/user-icon.png') left top;
+    background:url(https://greet-up-seeds.s3-us-west-1.amazonaws.com/user-icon.jpg) left top;
     width:50px; 
     height:50px;
     background-size: 50px 50px;
@@ -121,16 +121,21 @@
   border-color: #e21b3c;
 }
 
+.digital-event-map-placeholder-text{
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
 .digital-event-map-placeholder{
-    font-size: 24px;
-    padding: 100px;
     border: 2px solid lightgray;
     border-radius: 5px;
-    background: url(location_icon.jpg) left top;
-    height:300px;
-    width:300px; 
-    background-size: 300px 300px;
-    /* background:url(user-icon.png) left top; */
+    background: url(https://greet-up-seeds.s3-us-west-1.amazonaws.com/zoom-icon.png) left top;
+    background-repeat: no-repeat;
+    /* background-size: auto; */
+    height:250px;
+    width:250px;
+    background-size: 250px 250px;
 }
 
 /* .digital-event-map-placeholder > p{

@@ -38,21 +38,27 @@ function EventLocation({ event }){
         );
     }
 
+    let cityShow = event.city ? event.city : "";
+    let stateShow = event.state ? `, ${event.state}` : "";
+
     return (
         <div className="event-date-time-card">
             <p>{new Date(event.day.split('-').join(' ')).toDateString()}</p>
             <p>{convertUTCToLocalTime(event.startTime)}</p>
             <p>{`${event.address}`}</p>
-            <p>{`${event.city}, ${event.state}`}</p>
+            <p>{`${cityShow}${stateShow}`}</p>
         </div>
     )
 }
 
 function GoogleMapsContainer({ event }){
     if(event.digital){
-        return ( <p className="digital-event-map-placeholder">
-            {/* <p>This Event Is Remote</p> */}
-        </p>)
+        return ( 
+            <span>
+                <p className="digital-event-map-placeholder-text">This event is remote</p>
+                <p className="digital-event-map-placeholder"></p>
+            </span>
+        )
     }
 
     return (<GoogleApiWrapper event={event}/>)
