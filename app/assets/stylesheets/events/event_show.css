@@ -132,17 +132,14 @@
     border-radius: 5px;
     background: url(https://greet-up-seeds.s3-us-west-1.amazonaws.com/zoom-icon.png) left top;
     background-repeat: no-repeat;
-    /* background-size: auto; */
     height:250px;
     width:250px;
     background-size: 250px 250px;
 }
 
-/* .digital-event-map-placeholder > p{
-  font-size: 24px;
-  position: absolute;
-} */
-
+.digital-event-map-placeholder:hover{
+  cursor: pointer;
+}
 
 
 
