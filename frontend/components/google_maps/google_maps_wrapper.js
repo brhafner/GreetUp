@@ -32,7 +32,7 @@ export class MapContainer extends Component {
         }
 
 
-        if(!geoCode || (!!geoCode.lat && !!geoCode.lng)){
+        if(!!geoCode.lat && !!geoCode.lng){
             geoCodeCoordinates.lat = geoCode.lat;
             geoCodeCoordinates.lng = geoCode.lng;
         }

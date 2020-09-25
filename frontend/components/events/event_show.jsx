@@ -102,7 +102,7 @@ class EventShow extends React.Component {
 
         let { event, currentUserId, eventId, groupId, group, geoCode, requestGeoCode } = this.props;
 
-        if (!event || !group) {
+        if (!event || !event.host || !group) {
             return null;
         }
         let hostName = event.host.firstName  

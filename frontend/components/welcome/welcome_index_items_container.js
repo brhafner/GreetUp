@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import WelecomIndexItems from './welcome_index_items';
-import { requestAllEvents } from '../../actions/event_actions';
+import { requestAllEvents  } from '../../actions/event_actions';
 
 
 
