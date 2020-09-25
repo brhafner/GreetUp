@@ -20,9 +20,9 @@ export class MapContainer extends Component {
 
     render() {
 
-        let { event, geoCode } = this.props;
+        let { indexShow, geoCode } = this.props;
 
-        if(!event){
+        if (!indexShow && !this.props.event){
             return null;
         }
 
@@ -32,7 +32,7 @@ export class MapContainer extends Component {
         }
 
 
-        if(!!geoCode.lat && !!geoCode.lng){
+        if(!geoCode || (!!geoCode.lat && !!geoCode.lng)){
             geoCodeCoordinates.lat = geoCode.lat;
             geoCodeCoordinates.lng = geoCode.lng;
         }

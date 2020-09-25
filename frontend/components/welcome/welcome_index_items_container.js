@@ -5,7 +5,8 @@ import { requestAllEvents } from '../../actions/event_actions';
 
 
 const mSTP = (state) => ({
-    events: Object.values(state.entities.events)
+    events: Object.values(state.entities.events),
+    geoCode: state.entities.geoCode
 })
 
 const mDTP = (dispatch) => ({

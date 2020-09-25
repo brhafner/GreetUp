@@ -61,7 +61,12 @@ function GoogleMapsContainer({ event, geoCode, requestGeoCode }){
         )
     }
 
-    return (<GoogleApiWrapper event={event} geoCode={geoCode} requestGeoCode={requestGeoCode}/>)
+    return (<GoogleApiWrapper 
+                event={event} 
+                indexShow={false} 
+                geoCode={geoCode} 
+                requestGeoCode={requestGeoCode}
+            />)
 }
 
 class EventShow extends React.Component {

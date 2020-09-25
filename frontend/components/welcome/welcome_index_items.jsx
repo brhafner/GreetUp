@@ -42,7 +42,7 @@ class WelcomeIndexItems extends React.Component {
     }
 
     render(){
-        let { events } = this.props;
+        let { events, geoCode } = this.props;
 
         if (!events) {
             return null;
@@ -53,7 +53,10 @@ class WelcomeIndexItems extends React.Component {
                     </div>
                     <div className='right'>
                         <div className='google-maps-container'>
-                            <GoogleApiWrapper />
+                            <GoogleApiWrapper 
+                                indexShow={true}
+                                geoCode={geoCode}
+                            />
                         </div>
                 </div>
             </div>)
