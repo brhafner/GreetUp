@@ -3,9 +3,9 @@ import {
     RECEIVE_GROUP, 
     DELETE_GROUP,
     CLEAR_GROUPS 
-} from '../actions/group_actions'
+} from '../actions/group_actions';
 
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions'
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 const groupsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);

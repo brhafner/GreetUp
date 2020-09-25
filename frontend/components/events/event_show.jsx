@@ -51,7 +51,7 @@ function EventLocation({ event }){
     )
 }
 
-function GoogleMapsContainer({ event }){
+function GoogleMapsContainer({ event, geoCode, requestGeoCode }){
     if(event.digital){
         return ( 
             <span>
@@ -61,7 +61,7 @@ function GoogleMapsContainer({ event }){
         )
     }
 
-    return (<GoogleApiWrapper event={event}/>)
+    return (<GoogleApiWrapper event={event} geoCode={geoCode} requestGeoCode={requestGeoCode}/>)
 }
 
 class EventShow extends React.Component {
@@ -95,7 +95,7 @@ class EventShow extends React.Component {
 
     render() {
 
-        let { event, currentUserId, eventId, groupId, group } = this.props;
+        let { event, currentUserId, eventId, groupId, group, geoCode, requestGeoCode } = this.props;
 
         if (!event || !group) {
             return null;
@@ -164,7 +164,7 @@ class EventShow extends React.Component {
                     </div>
                     <div className='right'>
                         <div className='google-maps-container'>
-                            <GoogleMapsContainer event={event}/>
+                            <GoogleMapsContainer event={event} geoCode={geoCode} requestGeoCode={requestGeoCode}/>
                     </div>
                 </div>
             </div>
