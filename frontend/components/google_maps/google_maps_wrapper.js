@@ -61,26 +61,3 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
     apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
 })(MapContainer);
-
-
-
-
-        // let [latitude, setLatitude] = React.useState(-33.7560119)
-        // let [longitude, setLongitude] = React.useState(150.6038367)
-        // let [address, setAddress] = React.useState('')
-
-        // const encodedAddress = encodeURI(address)
-
-        // fetch(`https://google-maps-geocoding.p.rapidapi.com/geocode/json?language=en&address=${encodedAddress}`, {
-        //     "method": "GET",
-        //     "headers": {
-        //         "x-rapidapi-host": "google-maps-geocoding.p.rapidapi.com",
-        //         "x-rapidapi-key": process.env.RAPIDAPI_KEY
-        //     }
-        // })
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         setLatitude(response.lat)
-        //         setLongitude(response.long)
-        //     })
-        //     .catch(err => console.log(err))
