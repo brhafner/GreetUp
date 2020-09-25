@@ -9,7 +9,34 @@ const mapStyles = {
 };
 
 export class MapContainer extends Component {
+
+    componentDidMount(){
+
+        if(this.props.event ){
+            this.props.requestGeoCode(this.props.event)
+        }
+
+    }
+
     render() {
+
+        let { event, geoCode } = this.props;
+
+        if(!event){
+            return null;
+        }
+
+        let geoCodeCoordinates = {
+            lat: 37.7749,
+            lng: -122.4194
+        }
+
+
+        if(!!geoCode.lat && !!geoCode.lng){
+            geoCodeCoordinates.lat = geoCode.lat;
+            geoCodeCoordinates.lng = geoCode.lng;
+        }
+        
         return (
             <Map
                 google={this.props.google}
@@ -17,15 +44,15 @@ export class MapContainer extends Component {
                 style={mapStyles}
                 initialCenter={
                     {
-                        lat: 37.7749,
-                        lng: -122.4194
+                        lat: geoCodeCoordinates.lat,
+                        lng: geoCodeCoordinates.lng
                     }
                 }   
             >
             <Marker
-                title={'The marker`s title will appear as a tooltip.'}
-                name={'SOMA'}
-                position={{ lat: 37.778519, lng: -122.405640 }} />
+                // title={'The marker`s title will appear as a tooltip.'}
+                // name={'SOMA'}
+                position={{ lat: geoCodeCoordinates.lat, lng: geoCodeCoordinates.lng }} />
             </Map>
         );
     }

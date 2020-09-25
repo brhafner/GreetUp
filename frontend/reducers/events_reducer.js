@@ -2,7 +2,7 @@ import {
     RECEIVE_ALL_EVENTS,
     RECEIVE_EVENT,
     DELETE_EVENT,
-    CLEAR_EVENTS
+    CLEAR_EVENTS,
 } from '../actions/event_actions';
 import { CLEAR_GROUPS } from '../actions/group_actions';
 import { LOGOUT_CURRENT_USER } from '../actions/session_actions';

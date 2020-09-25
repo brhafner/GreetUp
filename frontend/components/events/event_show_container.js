@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { requestEvent, deleteEvent } from '../../actions/event_actions';
 import { createAttendance, deleteAttendance } from '../../actions/attendance_actions';
-import { requestGroup } from '../../actions/group_actions'
+import { requestGeoCode } from '../../actions/geoCode_actions';
+import { requestGroup } from '../../actions/group_actions';
 
 
 const mSTP = (state, ownProps) => ({
@@ -10,6 +11,7 @@ const mSTP = (state, ownProps) => ({
     group: state.entities.groups[ownProps.match.params.groupId],
     eventId: parseInt(ownProps.match.params.eventId),
     event: state.entities.events[ownProps.match.params.eventId],
+    geoCode: state.entities.geoCode,
     currentUserId: state.session.currentUserId
 })
 
@@ -18,7 +20,8 @@ const mDTP = (dispatch) => ({
     deleteEvent: (groupId, eventId) => dispatch(deleteEvent(groupId, eventId)),
     createAttendance: (eventId) => dispatch(createAttendance(eventId)),
     deleteAttendance: (eventId) => dispatch(deleteAttendance(eventId)),
-    requestGroup: (groupId) => dispatch(requestGroup(groupId))
+    requestGroup: (groupId) => dispatch(requestGroup(groupId)),
+    requestGeoCode: (event) => dispatch(requestGeoCode(event))
 })
 
 export default connect(mSTP, mDTP)(EventShow);
