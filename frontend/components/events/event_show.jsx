@@ -32,8 +32,8 @@ function EventLocation({ event }){
     if(event.address === "" || !event.address){
         return (
             <div className="event-date-time-card">
-                <p>This Event is Remote</p>
-                <p>Check Event Details for digital address</p>
+                <p>This event is remote.</p>
+                <p>Check Details for digital address.</p>
             </div>
         );
     }
@@ -51,12 +51,16 @@ function EventLocation({ event }){
     )
 }
 
-function GoogleMapsContainer({ event, geoCode, requestGeoCode }){
+function GoogleMapsContainer({ event, geoCode, requestGeoCode, handleClick }){
     if(event.digital){
         return ( 
             <span>
-                <p className="digital-event-map-placeholder-text">This event is remote</p>
-                <p className="digital-event-map-placeholder"></p>
+                <p className="digital-event-map-placeholder-text">
+                    Click here to join event video
+                </p>
+                <p className="digital-event-map-placeholder"
+                    onClick={() => handleClick()}
+                ></p>
             </span>
         )
     }
@@ -75,6 +79,7 @@ class EventShow extends React.Component {
         this.handleDelete = this.handleDelete.bind(this)
         this.handleJoinEvent = this.handleJoinEvent.bind(this)
         this.handleLeaveEvent = this.handleLeaveEvent.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
@@ -96,6 +101,10 @@ class EventShow extends React.Component {
                 this.props.history.push(`/groups/${groupId}/`)
             })
     };
+
+    handleClick(){
+        alert("This event has not started yet")
+    }
 
 
     render() {
@@ -169,7 +178,12 @@ class EventShow extends React.Component {
                     </div>
                     <div className='right'>
                         <div className='google-maps-container'>
-                            <GoogleMapsContainer event={event} geoCode={geoCode} requestGeoCode={requestGeoCode}/>
+                            <GoogleMapsContainer 
+                                event={event} 
+                                geoCode={geoCode} 
+                                requestGeoCode={requestGeoCode}
+                                handleClick={()=>this.handleClick()}
+                            />
                     </div>
                 </div>
             </div>
